@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   title: "DeScIn - Design Sciences Foundation India",
   description:
     "DeScIn official website featuring membership, events, resources, chapters, and design research initiatives.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
