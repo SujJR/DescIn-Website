@@ -93,6 +93,7 @@ const heroSlides = [
   {
     image: "/slides/hero-slide-1.png",
     alt: "DeScIn hero intro",
+    imageClassName: "slideImageKnowMore",
     ctaLabel: "Know more",
     ctaHref: "#about",
     ctaClassName: "slideCtaKnowMore",
@@ -100,6 +101,7 @@ const heroSlides = [
   {
     image: "/slides/hero-slide-2.png",
     alt: "Indian Winter School on Design Research",
+    imageClassName: "slideImageRegister",
     ctaLabel: "Register Here",
     ctaHref: "#events",
     ctaClassName: "slideCtaRegister",
@@ -420,7 +422,11 @@ export default function Home() {
               >
                 {heroSlides.map((slide) => (
                   <div className={styles.heroSlide} key={slide.image}>
-                    <img src={slide.image} alt={slide.alt} className={styles.heroSlideImage} />
+                    <img
+                      src={slide.image}
+                      alt={slide.alt}
+                      className={`${styles.heroSlideImage} ${styles[slide.imageClassName as keyof typeof styles]}`}
+                    />
                     <a
                       href={slide.ctaHref}
                       className={`${styles.slideCta} ${styles[slide.ctaClassName as keyof typeof styles]}`}

@@ -76,6 +76,7 @@
   line-height: 1.2;
   border-radius: 999px;
   transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .loginButton {
@@ -100,7 +101,6 @@
 .heroCard {
   position: relative;
   aspect-ratio: 1365 / 768;
-  min-height: auto;
   border-radius: 18px;
   overflow: hidden;
   background: #e9e7e8;
@@ -124,6 +124,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
+}
+
+.slideImageKnowMore {
+  object-position: center center;
+}
+
+.slideImageRegister {
+  object-position: center center;
 }
 
 .slideCta {
@@ -135,6 +144,7 @@
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
   z-index: 4;
+  white-space: nowrap;
 }
 
 .slideCtaKnowMore {
@@ -149,8 +159,8 @@
 }
 
 .slideCtaRegister {
-  left: 3.4%;
-  top: 49.4%;
+  left: 3.2%;
+  top: 49.6%;
   min-width: 245px;
   min-height: 56px;
   border: 2px solid #d2d2d2;
@@ -527,6 +537,7 @@
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
   scrollbar-width: none;
   gap: 1rem;
   padding: 1rem 0 1.3rem;
@@ -571,6 +582,7 @@
   overflow: hidden;
   background: var(--color-primary);
   cursor: pointer;
+  scroll-snap-align: start;
 }
 
 .memberModalOverlay {
@@ -647,6 +659,7 @@
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1.12rem, 1.7vw, 2.2rem);
   line-height: 1.55;
+  word-break: break-word;
 }
 
 .memberPhoto {
@@ -1063,6 +1076,24 @@
 }
 
 @media (max-width: 1220px) {
+  .headerInner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .siteNav {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+  }
+
+  .band {
+    padding: clamp(2.2rem, 5.4vw, 4.5rem) 0;
+  }
+
   .chapterGrid,
   .benefitGrid,
   .principleGrid,
@@ -1079,9 +1110,45 @@
   }
 }
 
+@media (max-width: 1220px) and (min-width: 981px) {
+  .slideArrowLeft,
+  .slideArrowRight {
+    width: 46px;
+    height: 46px;
+    font-size: 1.35rem;
+  }
+
+  .heroDot {
+    width: 13px;
+    height: 13px;
+  }
+
+  .heroDots {
+    gap: 0.55rem;
+    bottom: 0.9rem;
+  }
+}
+
 @media (max-width: 980px) {
   .container {
     width: min(1408px, calc(100% - 2.2rem));
+  }
+
+  .band {
+    padding: clamp(2rem, 5vw, 3.6rem) 0;
+  }
+
+  .sectionTitle {
+    line-height: 1;
+  }
+
+  .siteNav {
+    gap: 0.35rem;
+  }
+
+  .navLink {
+    font-size: 1rem;
+    padding: 0.45rem 0.78rem;
   }
 
   .heroBrandPanel {
@@ -1093,20 +1160,39 @@
     grid-template-columns: 120px minmax(0, 1fr);
   }
 
+  .heroCard {
+    aspect-ratio: 1365 / 768;
+  }
+
+  .heroSlide {
+    min-height: 100%;
+  }
+
+  .slideImageKnowMore {
+    object-position: center center;
+  }
+
+  .slideImageRegister {
+    object-position: center center;
+  }
+
+  .slideCta {
+    min-width: auto;
+    min-height: auto;
+    border-width: 1.6px;
+    padding: clamp(0.4rem, 0.95vw, 0.55rem) clamp(0.9rem, 2vw, 1.2rem);
+  }
+
   .slideCtaKnowMore {
-    left: 3.5%;
-    top: 55.2%;
-    min-width: 212px;
-    min-height: 52px;
-    font-size: 1.12rem;
+    left: 3.2%;
+    top: 74.2%;
+    font-size: clamp(0.88rem, 1.55vw, 0.98rem);
   }
 
   .slideCtaRegister {
-    left: 3.5%;
-    top: 72.1%;
-    min-width: 186px;
-    min-height: 46px;
-    font-size: 1rem;
+    left: 3.2%;
+    top: 74.2%;
+    font-size: clamp(0.84rem, 1.4vw, 0.94rem);
   }
 
   .heroBrandMark img {
@@ -1152,6 +1238,31 @@
   .memberCard {
     flex-basis: calc((100% - 1rem) / 1.8);
   }
+
+  .councilSliderWrap {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .sliderArrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .councilSliderWrap > .sliderArrow:first-child {
+    order: 2;
+    justify-self: start;
+  }
+
+  .councilSliderWrap > .memberStrip {
+    order: 1;
+  }
+
+  .councilSliderWrap > .sliderArrow:last-child {
+    order: 3;
+    justify-self: end;
+    margin-top: -2.6rem;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1159,25 +1270,43 @@
     width: min(1408px, calc(100% - 1.4rem));
   }
 
-  .siteHeader {
-    position: static;
+  .band {
+    padding: 1.7rem 0;
   }
 
   .headerInner {
-    align-items: flex-start;
-    flex-direction: column;
+    gap: 0.6rem;
   }
 
   .siteNav {
-    width: 100%;
-    overflow-x: auto;
-    flex-wrap: nowrap;
+    gap: 0.3rem;
     padding-bottom: 0.2rem;
   }
 
+  .navLink {
+    font-size: 0.92rem;
+    padding: 0.42rem 0.7rem;
+  }
+
+  .loginButton {
+    font-size: 0.94rem;
+    padding: 0.52rem 1rem;
+  }
+
   .heroCard {
-    min-height: 620px;
-    aspect-ratio: auto;
+    aspect-ratio: 1365 / 768;
+  }
+
+  .heroSlide {
+    min-height: 100%;
+  }
+
+  .slideImageKnowMore {
+    object-position: center center;
+  }
+
+  .slideImageRegister {
+    object-position: center center;
   }
 
   .heroHeading {
@@ -1209,6 +1338,22 @@
     transform: none;
   }
 
+  .slideCtaKnowMore {
+    left: 3.2%;
+    top: 72.6%;
+    font-size: clamp(0.78rem, 2.2vw, 0.88rem);
+    padding: clamp(0.34rem, 1vw, 0.42rem) clamp(0.78rem, 2.2vw, 0.92rem);
+    border-width: 1.4px;
+  }
+
+  .slideCtaRegister {
+    left: 3.2%;
+    top: 72.6%;
+    font-size: clamp(0.76rem, 2.05vw, 0.86rem);
+    padding: clamp(0.34rem, 1vw, 0.42rem) clamp(0.78rem, 2.2vw, 0.92rem);
+    border-width: 1.4px;
+  }
+
   .slideArrowLeft {
     left: 0.6rem;
   }
@@ -1225,7 +1370,17 @@
   }
 
   .memberCard {
-    flex-basis: calc(100% - 4rem);
+    flex-basis: calc(100% - 2rem);
+  }
+
+  .sliderArrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .councilSliderWrap > .sliderArrow:last-child {
+    margin-top: -2.2rem;
   }
 
   .membershipRow {
@@ -1235,5 +1390,22 @@
 
   .membershipIcon {
     min-height: 86px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slideCta {
+    border-width: 1.2px;
+    padding: clamp(0.28rem, 0.9vw, 0.35rem) clamp(0.64rem, 1.7vw, 0.78rem);
+  }
+
+  .slideCtaKnowMore {
+    top: 71.8%;
+    font-size: clamp(0.68rem, 3.1vw, 0.76rem);
+  }
+
+  .slideCtaRegister {
+    top: 71.8%;
+    font-size: clamp(0.66rem, 2.9vw, 0.74rem);
   }
 }
