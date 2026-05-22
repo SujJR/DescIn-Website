@@ -111,58 +111,63 @@ const membershipTypes = [
     description: "Full-time student; early career in design research",
     details: "PhD students in design research who have completed their coursework and are about to begin focused research in the second or third year.",
     fees: "UG: INR 1000 | PG: INR 1500 | PhD: INR 2000 (+ 18% GST for 2Y)",
-    benefits: ["Discount on events (10%)", "Access to workshops and training", "Student chapter engagement"],
-    canVote: false,
+    benefits: ["Discount on events (10%)", "Opportunity to be informed and engage in various activities", "Network with scholars", "Access to resources and exclusive content", "Student chapter engagement"],
   },
   {
     title: "Associate Member",
     description: "Emerging researchers and professionals without PhD",
     details: "Emerging researchers and professionals building solid foundations in design research methodology and project framing.",
     fees: "INR 3000 + 18% GST (2Y)",
-    benefits: ["Discount on events (10%)", "Engagement in activities", "Networking opportunities"],
-    canVote: false,
+    benefits: ["Discount on events (10%)", "Opportunity to be informed and engage in various activities", "Network with scholars", "Access to resources and exclusive content"],
   },
   {
     title: "Full Member",
     description: "Researchers and practitioners with PhD",
     details: "Researchers and practitioners with active contributions to design science, publications, and mentoring activity.",
     fees: "INR 4000 + 18% GST (2Y)",
-    benefits: ["Discount on events (10%)", "Contribution to democratic processes", "Full networking access", "Professional recognition"],
-    canVote: true,
+    benefits: ["Discount on events (10%)", "Opportunity to be informed and engage in various activities", "Opportunity to take part and contribute in the democratic processes within the society (Voting rights)", "Network with scholars", "Access to resources and exclusive content", "Professional recognition"],
   },
   {
     title: "Fellow",
     description: "Senior leaders with long-term impact",
     details: "Senior design science leaders recognized for long-term impact through research, guidance, and institution building.",
     fees: "INR 4000 + 18% GST (2Y)",
-    benefits: ["Premium benefits", "Leadership opportunities", "Special recognition", "Institutional visibility"],
-    canVote: true,
+    benefits: ["Discount on events (10%)", "Opportunity to be informed and engage in various activities", "Opportunity to take part and contribute in the democratic processes within the society (Voting rights)", "Network with scholars", "Access to resources and exclusive content", "Leadership opportunities", "Special recognition"],
   },
 ];
-
-// benefits list intentionally removed (benefits shown per-membership in modals)
 
 const eventsList = [
   {
     title: "ICoRD",
-    subtitle: "International Conference on Research into Design",
+    subtitle: "International Conference on Research into Design - (owned from 2027)",
     image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
-    description: "ICoRD is a series of conferences held every two years in India to bring together the international community from diverse areas of design practice, education and research. The conference delves into the multifaceted nature of design, showcasing original research and fostering collaboration. Owned by DeScIn from 2027.",
-    fullDescription: "Design is ubiquitous. All artefacts—physical objects, services, digital interfaces, and socio-technical systems—are outcomes of design. Across the globe, several countries with strong engineering and scientific bases are increasingly recognizing design research as an important domain for academic inquiry and investment. India, with its rich and diverse design heritage and a growing scientific base, has the potential to become a leader in design research. ICoRD is a unique platform for bringing together researchers from around the globe in India to deliberate on the multifaceted nature of design, showcase original research, nurture collaborations, and disseminate findings. ICoRD is organized every two years with support from various institutions. From 2027, ICoRD will be owned and organized by DeScIn, and IISc is one of India's leading research institutions contributing to this endeavor.",
+    description: "ICoRD is a series of conferences intended to be held every two years in India to bring together the international community...",
+    paragraphs: [
+      "Design is ubiquitous; it pervades all spheres of life and has been around as long as life has taken up the task of purposefully changing the world around it. Research into design and the emergence of a research community in this area has been relatively new. Its development has been influenced by the multiple facets of design (human, artefact, process, organisation, the micro- and macro economy and the ecology by which design is shaped) and the associated diversification of the community depending on the facets of focus or that of their applications. Design is complex, balancing the needs of multiple stakeholders, and requiring a multitude of areas of knowledge to be utilised, and resources spread across space and time.",
+      "ICoRD is a series of conferences intended to be held every two years in India to bring together the international community from diverse areas of design practice, education and research. The conference delves into the multifaceted nature of design, showcasing original research and fostering collaboration. It aims to showcase cutting-edge research about design to the stakeholders; aid the ongoing process of developing and extending the collective vision through emerging research challenges and questions; and provide a platform for interaction, collaboration and development of the community for it to take up the challenges to realize the vision. This event and platform brings together practitioners, researchers, pupils, and educators in a vibrant space where technology and human experience intersect. Join us in shaping the future of design innovation.",
+      "ICoRD was initiated by DM, IISc, Bengaluru in 2006. Since then, it has since been hosted in 2009, 2011 (both at IISc), 2013 (at IIT Madras), 2015 (IISc), 2017 (IIT Guwahati), 2019 (IISc), 2021 (IIT Bombay, online), 2023 (IISc) and 2025 (IIT Hyderabad). DM has pioneered design research in India. IISc is one of India's leading science and technology institutions and is one of the Institutes of Eminence (IoE) decreed by the Ministry of Education (MoE), Government of India."
+    ]
   },
   {
     title: "I-4AM",
-    subtitle: "International Conference on Industry 4.0 and Advanced Manufacturing",
+    subtitle: "International Conference on Industry 4.0 and Advanced Manufacturing - (owned since 2026)",
     image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
-    description: "A biennial conference series providing a platform for all stakeholders in manufacturing and Industry 4.0 to deliberate on nature, needs, challenges, and opportunities. Focus on sustainable, affordable, and human-centric Industry 4.0. Owned by DeScIn since 2026.",
-    fullDescription: "Industry 4.0 is about the transformation of manufacturing and production processes through digital technologies, data analytics, artificial intelligence, and automation. However, manufacturing also faces the challenge of balancing technological advancement with sustainability, affordability, and human-centric approaches. I-4AM provides a platform for researchers, practitioners, policymakers, and industry leaders to deliberate on the nature of Industry 4.0, discuss challenges and opportunities, and explore solutions that are inclusive and impactful. The conference has been owned by DeScIn since 2026 and supported by the Ministry of Heavy Industries, Government of India.",
+    description: "Industry 4.0 is about using connected intelligence to usher in greater productivity, quality, flexibility, safety and resource utilisation across manufacturing enterprises...",
+    paragraphs: [
+      "Industry 4.0 is about using connected intelligence to usher in greater productivity, quality, flexibility, safety and resource utilisation across manufacturing enterprises, in which advanced manufacturing technologies such as Robotics or Additive Manufacturing play a critical role.",
+      "International Conference on Industry 4.0 and Advanced Manufacturing, abbreviated as I-4AM (pronounced i-forum), is a biennial conference series, which intends to provide a platform to bring together all stakeholders in manufacturing and Industry 4.0, in particular those in academia and industry, in both India and abroad for them to deliberate on the nature, needs, challenges, opportunities, problems and solutions in this transformational area of endeavour. A specific focus of I-4AM is to provide a platform for exploring avenues for creating a vision of, and enablers for sustainable, affordable, and human-centric Industry 4.0, and to showcase cutting edge practice, research and educational innovation in this crucial and rapidly evolving area. The I-4AM series was initiated in 2019 by the Department of Design and Manufacturing, Indian Institute of Science, under its Common Engineering Facility Centre (CEFC) on I4.0India@IISc (Smart Factory) within the SAMARTH Udyog Bharat 4.0 programme of the Ministry of Heavy Industries, Government of India."
+    ]
   },
   {
     title: "DRM Gurukooll",
-    subtitle: "Design Research Methodology Workshop",
+    subtitle: "Design Research Methodology Workshop - (owned since 2025)",
     image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
-    description: "An annual event hosted at a different institution each year with objectives of exposing designers and early career researchers to the current understanding of design and design research, and supporting them to adopt systematic research methodology. Owned by DeScIn since 2025.",
-    fullDescription: "Design is an interdisciplinary field that integrates knowledge from science, engineering, arts, and humanities. Design research is the systematic investigation of design processes, products, and systems with the goal of advancing knowledge and improving practice. DRM Gurukooll is an annual workshop that provides a platform for engaging designers and early career researchers with current understanding of design and design research, and supporting them to adopt systematic research methodology in their work. Held at different institutions each year since its inception, DRM Gurukooll has been owned by DeScIn since 2025 and has been used globally for the last 3 decades as a framework for advancing design research methodology.",
+    description: "“Design is an interdisciplinary discipline” with many facets: people, product, process, tools, economy and ecology...",
+    paragraphs: [
+      "“Design is an interdisciplinary discipline” with many facets: people, product, process, tools, economy and ecology, that interact in the ways designing and their outcomes are produced. While designing involves research of market and users, breakthrough design innovations are often result of focussed research into the phenomena and practice of design. This type of design research involves reflective studies into how design occurs, and how it can be improved. It is multi-, inter-, and sometimes trans-disciplinary, embracing and integrating research methods from multiple disciplines.",
+      "DRM Gurukooll is an annual event hosted, under the auspices of DeScIn – Academy of Design Science Foundation India, at a different institution each year, with the objectives of exposing designers and early (career) design researchers to the current understanding of design and design research, and supporting them to adopt a systematic research methodology. With the increasing number of universities in India offering research programmes including master's and PhD in design, this workshop aims towards contributing to the national vision on nurturing design research and improving designs and designing.",
+      "Curated especially for early career researcher, this programme offers guided mentorship from leading design researchers. It focuses on building a systematic approach to design research, grounded in the DRM methodology, that has been used globally for the last 3 decades."
+    ]
   },
 ];
 
@@ -231,6 +236,8 @@ const popularArticles = [
   "Journey Mapping 101",
   "How to Conduct a Heuristic Evaluation",
 ];
+
+const showArticlesResourcesBackup = false;
 
 function SectionTitle({ title }: { title: string }) {
   return (
@@ -301,11 +308,12 @@ export default function Home() {
   const [isGoverningOpen, setIsGoverningOpen] = useState(true);
   const [isAdvisoryOpen, setIsAdvisoryOpen] = useState(false);
   const [isTaskForceOpen, setIsTaskForceOpen] = useState(false);
-  const [selectedMember, setSelectedMember] = useState<(typeof governingCouncil)[number] | null>(null);
-  const [expandedPrinciples, setExpandedPrinciples] = useState<string[]>([]);
+  const [selectedMember, setSelectedMember] = useState<{name: string; role: string; bio: string; photo?: string} | null>(null);
+  const [expandedPrinciple, setExpandedPrinciple] = useState<string | null>(null);
   const [selectedMembership, setSelectedMembership] = useState<(typeof membershipTypes)[number] | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<(typeof eventsList)[number] | null>(null);
   const governingSliderRef = useRef<HTMLDivElement | null>(null);
+  const taskForceSliderRef = useRef<HTMLDivElement | null>(null);
 
   const nextSlide = () => {
     setActiveSlide((current) => (current + 1) % heroSlides.length);
@@ -341,10 +349,14 @@ export default function Home() {
     slider.scrollBy({ left: delta, behavior: "smooth" });
   };
 
-  const togglePrincipleExpanded = (title: string) => {
-    setExpandedPrinciples((prev) =>
-      prev.includes(title) ? prev.filter((p) => p !== title) : [...prev, title]
-    );
+  const slideTaskForce = (direction: "left" | "right") => {
+    const slider = taskForceSliderRef.current;
+    if (!slider) return;
+    const firstCard = slider.querySelector<HTMLElement>(`.${styles.memberCard}`);
+    const gap = 16;
+    const step = (firstCard?.offsetWidth ?? 0) + gap;
+    const delta = direction === "right" ? step : -step;
+    slider.scrollBy({ left: delta, behavior: "smooth" });
   };
 
   return (
@@ -361,7 +373,7 @@ export default function Home() {
                 {item.label}
               </a>
             ))}
-            <button type="button" className={styles.loginButton}>Log in</button>
+            <button className={styles.loginButton}>Log in</button>
           </nav>
         </div>
       </header>
@@ -381,12 +393,12 @@ export default function Home() {
                 ))}
               </div>
               <div className={styles.heroControlsOverlay}>
-                <button type="button" className={styles.slideArrowLeft} aria-label="Previous slide" onClick={prevSlide}>
+                <button className={styles.slideArrowLeft} aria-label="Previous slide" onClick={prevSlide}>
                   &lt;
                 </button>
                 <div className={styles.heroDots}>
                   {heroSlides.map((slide, index) => (
-                    <button type="button"
+                    <button
                       key={slide.image}
                       className={`${styles.heroDot} ${activeSlide === index ? styles.heroDotActive : ""}`}
                       aria-label={`Go to slide ${index + 1}`}
@@ -394,7 +406,7 @@ export default function Home() {
                     />
                   ))}
                 </div>
-                <button type="button" className={styles.slideArrowRight} aria-label="Next slide" onClick={nextSlide}>
+                <button className={styles.slideArrowRight} aria-label="Next slide" onClick={nextSlide}>
                   &gt;
                 </button>
               </div>
@@ -405,17 +417,19 @@ export default function Home() {
         <section className={`${styles.band} ${styles.darkBand}`} id="about">
           <div className={`${styles.container} ${styles.splitIntro}`}>
             <SectionTitle title="About" />
-            <p className={styles.leadText}>
-              All major areas of research in India have their own peer academic bodies, e.g. National Academy of Sciences, National Academy of Engineering, etc. However, &apos;research into design&apos;, also called &apos;design sciences&apos;, hitherto did not have any such entity. DeScIn - Academy of Design Science Foundation, India, is India&apos;s first peer academy in this area.
-            </p>
-            <div className={styles.aboutExtended}>
-              <h4>Objectives</h4>
-              <p className={styles.objectiveText}>
-                O1. To support development and nurture of a diverse and vibrant academic community in India of the highest international quality in all areas of research into design.
+            <div className={styles.aboutContentRight}>
+              <p className={styles.leadText}>
+                All major areas of research in India have their own peer academic bodies, e.g. National Academy of Sciences, National Academy of Engineering, etc. However, &apos;research into design&apos;, also called &apos;design sciences&apos;, hitherto did not have any such entity. DeScIn - Academy of Design Science Foundation, India, is India&apos;s first peer academy in this area.
               </p>
-              <p className={styles.objectiveText}>
-                O2. To support production and publication of outputs from India of the highest international quality in all areas of research into design.
-              </p>
+              <div className={styles.aboutExtended}>
+                <h4>Objectives</h4>
+                <p className={styles.objectiveText}>
+                  O1. To support development and nurture of a diverse and vibrant academic community in India of the highest international quality in all areas of research into design.
+                </p>
+                <p className={styles.objectiveText}>
+                  O2. To support production and publication of outputs from India of the highest international quality in all areas of research into design.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -425,25 +439,22 @@ export default function Home() {
             <SectionTitle title="Principles" />
             <div className={styles.principleGrid}>
               {principlesList.map((principle) => (
-                <article
-                  className={`${styles.principleCard} ${expandedPrinciples.includes(principle.title) ? styles.principleCardExpanded : ""}`}
-                  key={principle.title}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => togglePrincipleExpanded(principle.title)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") togglePrincipleExpanded(principle.title);
-                  }}
-                >
-                  <div className={styles.principleIcon}>{principle.marker}</div>
-                  <h4>{principle.title}</h4>
-                  <p>{principle.shortCopy}</p>
-                  {expandedPrinciples.includes(principle.title) && (
+                <div key={principle.title} className={`${styles.principleCard} ${expandedPrinciple === principle.title ? styles.principleCardExpanded : ""}`}>
+                  <button
+                    className={styles.principleButton}
+                    onClick={() => setExpandedPrinciple(expandedPrinciple === principle.title ? null : principle.title)}
+                  >
+                    <div className={styles.principleIcon}>{principle.marker}</div>
+                    <h4>{principle.title}</h4>
+                    <p className={styles.principleShort}>{principle.shortCopy}</p>
+                    <span className={styles.expandIcon}>{expandedPrinciple === principle.title ? "−" : "+"}</span>
+                  </button>
+                  {expandedPrinciple === principle.title && (
                     <div className={styles.principleExpandedContent}>
                       <p>{principle.fullContent}</p>
                     </div>
                   )}
-                </article>
+                </div>
               ))}
             </div>
           </div>
@@ -451,10 +462,12 @@ export default function Home() {
 
         <section className={`${styles.band} ${styles.lightBand} ${styles.gridLight}`} id="organisation">
           <div className={styles.container}>
-            <SectionTitle title="Organisation" />
-            <p className={styles.organisationDescription}>
-              DeScIn is steered by a governing council that shapes its vision, direction, and long-term growth. Comprising world-renowned leaders in design sciences, the council brings together academic excellence, institutional experience, and a shared commitment to advancing design as a rigorous and impactful discipline.
-            </p>
+            <div className={styles.splitIntro}>
+              <SectionTitle title="Organisation" />
+              <p className={styles.leadText} style={{ marginBottom: "2rem" }}>
+                DeScIn is steered by a governing council that shapes its vision, direction, and long-term growth. Comprising world-renowned leaders in design sciences, the council brings together academic excellence, institutional experience, and a shared commitment to advancing design as a rigorous and impactful discipline.
+              </p>
+            </div>
 
             <div className={styles.orgWrap}>
               <div className={styles.orgRow}>
@@ -483,18 +496,24 @@ export default function Home() {
 
                     <div className={styles.memberStrip} ref={governingSliderRef}>
                       {governingCouncil.map((member, index) => (
-                        <button
-                          type="button"
+                        <article
                           className={styles.memberCard}
                           key={`${member.name}-${index}`}
+                          role="button"
+                          tabIndex={0}
                           onClick={() => setSelectedMember(member)}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              setSelectedMember(member);
+                            }
+                          }}
                         >
                           <img src={member.photo} alt={member.name} className={styles.memberPhoto} />
                           <div className={styles.memberInfo}>
                             <h4 className={styles.memberName}>{member.name}</h4>
                             <p className={styles.memberRole}>{member.role}</p>
                           </div>
-                        </button>
+                        </article>
                       ))}
                     </div>
 
@@ -524,17 +543,45 @@ export default function Home() {
                 </div>
 
                 {isTaskForceOpen && (
-                  <div className={styles.taskForceGrid}>
-                    {taskForceMembers.map((member) => (
-                      <article className={styles.taskForceCard} key={member.name}>
-                        <img src={member.photo} alt={member.name} className={styles.taskForcePhoto} />
-                        <div className={styles.taskForceInfo}>
-                          <h5 className={styles.taskForceName}>{member.name}</h5>
-                          <p className={styles.taskForceRole}>{member.role}</p>
-                          <p className={styles.taskForceBio}>{member.bio}</p>
-                        </div>
-                      </article>
-                    ))}
+                  <div className={styles.councilSliderWrap}>
+                    <button
+                      className={styles.sliderArrow}
+                      aria-label="Show previous task force members"
+                      onClick={() => slideTaskForce("left")}
+                    >
+                      &lt;
+                    </button>
+
+                    <div className={styles.memberStrip} ref={taskForceSliderRef}>
+                      {taskForceMembers.map((member, index) => (
+                        <article
+                          className={styles.memberCard}
+                          key={`${member.name}-${index}`}
+                          role="button"
+                          tabIndex={0}
+                          onClick={() => setSelectedMember(member)}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              setSelectedMember(member);
+                            }
+                          }}
+                        >
+                          <img src={member.photo} alt={member.name} className={styles.memberPhoto} />
+                          <div className={styles.memberInfo}>
+                            <h4 className={styles.memberName}>{member.name}</h4>
+                            <p className={styles.memberRole}>{member.role}</p>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+
+                    <button
+                      className={styles.sliderArrow}
+                      aria-label="Show next task force members"
+                      onClick={() => slideTaskForce("right")}
+                    >
+                      &gt;
+                    </button>
                   </div>
                 )}
               </div>
@@ -566,25 +613,25 @@ export default function Home() {
 
         <section className={`${styles.band} ${styles.darkBand}`} id="membership">
           <div className={styles.container}>
-            <SectionTitle title="Membership" />
-            <p className={styles.leadText} style={{ marginBottom: "2rem" }}>
-              There are four types of membership in DeScIn Academy. Click on a membership type to see the benefits and details.
-            </p>
+            <div className={styles.splitIntro}>
+              <SectionTitle title="Membership" />
+              <p className={styles.leadText} style={{ marginBottom: "2rem" }}>
+                There are four types of membership in DeScIn Academy. Click on a membership type to see the benefits and details.
+              </p>
+            </div>
 
             <div className={styles.membershipGrid}>
               {membershipTypes.map((type) => (
-                  <button type="button"
-                  key={type.title}
-                  className={styles.membershipCardButton}
-                  onClick={() => setSelectedMembership(type)}
-                >
-                  <div className={styles.membershipCardContent}>
+                <div key={type.title} className={styles.membershipCard}>
+                  <button
+                    className={styles.membershipButton}
+                    onClick={() => setSelectedMembership(type)}
+                  >
                     <h4>{type.title}</h4>
                     <p>{type.description}</p>
-                    <div className={styles.membershipCardFees}>{type.fees}</div>
-                  </div>
-                  <span className={styles.membershipArrow}>→</span>
-                </button>
+                    <span className={styles.expandIcon}>+</span>
+                  </button>
+                </div>
               ))}
             </div>
           </div>
@@ -595,19 +642,23 @@ export default function Home() {
             <SectionTitle title="Events" />
             <div className={styles.eventDetailGrid}>
               {eventsList.map((event) => (
-                <button type="button"
+                <article
+                  className={styles.eventDetailCard}
                   key={event.title}
-                  className={styles.eventCardButton}
+                  role="button"
+                  tabIndex={0}
                   onClick={() => setSelectedEvent(event)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") setSelectedEvent(event);
+                  }}
                 >
                   <img src={event.image} alt={event.title} className={styles.eventImage} />
                   <div className={styles.eventDetailBody}>
                     <h4>{event.title}</h4>
                     <p className={styles.eventSubtitle}>{event.subtitle}</p>
                     <p className={styles.eventDescription}>{event.description}</p>
-                    <span className={styles.eventArrow}>Learn more →</span>
                   </div>
-                </button>
+                </article>
               ))}
             </div>
           </div>
@@ -616,7 +667,9 @@ export default function Home() {
         <section className={`${styles.band} ${styles.lightBand} ${styles.gridLight}`}>
           <div className={styles.container}>
             <div className={styles.splitIntro}>
-              <SectionTitle title="Student Chapters" />
+              <div className={styles.sectionHeader}>
+                <SectionTitle title="Student Chapters" />
+              </div>
               <p className={styles.leadText}>
                 A Student Chapter of DeScIn Academy is an organisational entity that provides a platform for student-level activities at a university aimed at encouraging design research. Currently there are 3 Student Chapters of DeScIn.
               </p>
@@ -640,9 +693,15 @@ export default function Home() {
             <SectionTitle title="Special Interest Groups" />
             <div className={styles.eventGrid}>
               {specialInterestGroups.map((group) => (
-                <article key={group.title} className={styles.eventGridCard}>
-                  <img src={group.image} alt={group.title} />
-                  <h4>{group.title}</h4>
+                <article className={styles.eventCard} key={group.title}>
+                  <img src={group.image} alt={group.title} className={styles.eventImage} />
+                  <div className={styles.eventBody}>
+                    <h4>{group.title}</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur. Tellus nunc nunc morbi viverra.
+                      Diam donec eu gravida non facilisis nulla ut feugiat.
+                    </p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -652,95 +711,137 @@ export default function Home() {
         <section className={`${styles.band} ${styles.lightBand} ${styles.gridLight}`}>
           <div className={styles.container}>
             <SectionTitle title="Awards & Fellowship" />
-            <div className={styles.dividedContent}>
-              <p>
-                DeScIn Academy recognizes and honors outstanding contributions to design sciences. Our awards and fellowship programs celebrate researchers and practitioners whose work has advanced the field and inspired others.
-              </p>
-              <p>
-                Through these distinctions, we acknowledge excellence, foster collaboration, and encourage the next generation of design scientists to push boundaries and create meaningful impact.
+            <div className={styles.awardsBlock}>
+              <p className={styles.subCopy}>
+                DeScIn Academy recognizes and honors outstanding contributions to the field of design sciences through awards and fellowships, celebrating individuals who exemplify excellence and innovation.
               </p>
             </div>
           </div>
         </section>
 
-        <ResourceSection title="Resources" dark={false} />
+        <section id="resources">
+          <ResourceSection title="Resources" />
+        </section>
+
+        {showArticlesResourcesBackup && <ResourceSection title="Articles & Resources" dark />}
       </main>
 
-      {/* Modals */}
+      <footer className={styles.siteFooter}>
+        <div className={`${styles.container} ${styles.footerInner}`}>
+          <div className={styles.footerBrand}>
+            <img src="https://api.builder.io/api/v1/image/assets/TEMP/a60ffb900e83eb04c59153aad12ceffa30044ac8?width=225" alt="DeScIn" />
+            <span>DeScIn</span>
+          </div>
 
-      {selectedMember && (
-        <div className={styles.modalOverlay} onClick={() => setSelectedMember(null)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-              <button type="button" className={styles.modalClose} onClick={() => setSelectedMember(null)}>
-              ×
-            </button>
-            <div className={styles.memberModalLayout}>
-              <div className={styles.memberModalSticky}>
-                <img src={selectedMember.photo} alt={selectedMember.name} />
-                <h3>{selectedMember.name}</h3>
-                <p>{selectedMember.role}</p>
-              </div>
-              <div className={styles.memberModalScrollable}>
-                <p>{selectedMember.bio}</p>
-              </div>
-            </div>
+          <div className={styles.footerCol}>
+            <h5>Email</h5>
+            <a href="mailto:drmgurukooll@gmail.com">drmgurukooll@gmail.com</a>
+            <a href="tel:+919876543210">+91 9876543210</a>
+            <a href="tel:+919876543211">+91 9876543211</a>
+          </div>
+
+          <div className={styles.footerCol}>
+            <h5>Department of Design and Manufacturing, IISc Bengaluru</h5>
+            <p>North Guwahati, Assam 78039</p>
+            <a href="http://www.iitg.ac.in/design">http://www.iitg.ac.in/design</a>
           </div>
         </div>
-      )}
+      </footer>
 
-      {selectedMembership && (
-        <div className={styles.modalOverlay} onClick={() => setSelectedMembership(null)}>
-          <div className={styles.membershipModal} onClick={(e) => e.stopPropagation()}>
-            <button type="button" className={styles.modalClose} onClick={() => setSelectedMembership(null)}>
+      {selectedMember && (
+        <div className={styles.memberModalOverlay} onClick={() => setSelectedMember(null)}>
+          <div className={styles.memberModalCard} onClick={(event) => event.stopPropagation()}>
+            <button
+              className={styles.memberModalClose}
+              aria-label="Close member details"
+              onClick={() => setSelectedMember(null)}
+            >
               ×
             </button>
-            <div className={styles.membershipModalContent}>
-              <h3>{selectedMembership.title}</h3>
-              <p className={styles.membershipDescription}>{selectedMembership.description}</p>
-              <p className={styles.membershipDetails}>{selectedMembership.details}</p>
 
-              <div className={styles.membershipModalSection}>
-                <h4>Fees</h4>
-                <p>{selectedMembership.fees}</p>
-              </div>
-
-              <div className={styles.membershipModalSection}>
-                <h4>Benefits</h4>
-                <ul className={styles.benefitsList}>
-                  {selectedMembership.benefits.map((benefit) => (
-                    <li key={benefit}>{benefit}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {selectedMembership.canVote && (
-                <div className={styles.membershipVotingIndicator}>
-                  <span className={styles.votingBadge}>✓ Voting Rights</span>
-                </div>
+            <div className={styles.memberModalLeft}>
+              {selectedMember.photo && (
+                <img src={selectedMember.photo} alt={selectedMember.name} className={styles.memberModalImage} />
               )}
+              <h3>{selectedMember.name}</h3>
+              <p>{selectedMember.role}</p>
+            </div>
 
-              <button type="button" className={styles.registerButton}>Register Now</button>
+            <div className={styles.memberModalRight}>
+              <p>{selectedMember.bio}</p>
             </div>
           </div>
         </div>
       )}
 
       {selectedEvent && (
-        <div className={styles.modalOverlay} onClick={() => setSelectedEvent(null)}>
-          <div className={styles.eventModal} onClick={(e) => e.stopPropagation()}>
-            <button type="button" className={styles.modalClose} onClick={() => setSelectedEvent(null)}>
+        <div className={styles.memberModalOverlay} onClick={() => setSelectedEvent(null)}>
+          <div className={styles.memberModalCard} onClick={(event) => event.stopPropagation()}>
+            <button
+              className={styles.memberModalClose}
+              aria-label="Close event details"
+              onClick={() => setSelectedEvent(null)}
+            >
               ×
             </button>
-            <div className={styles.eventModalContent}>
-              <img src={selectedEvent.image} alt={selectedEvent.title} className={styles.eventModalImage} />
-              <div className={styles.eventModalInfo}>
-                <h3>{selectedEvent.title}</h3>
-                <p className={styles.eventModalSubtitle}>{selectedEvent.subtitle}</p>
-                <div className={styles.eventModalDescription}>
-                  <p>{selectedEvent.fullDescription}</p>
-                </div>
-                <button type="button" className={styles.registerButton}>Learn More</button>
+
+            <div className={styles.memberModalLeft}>
+              <img src={selectedEvent.image} alt={selectedEvent.title} className={styles.memberModalImage} />
+              <h3>{selectedEvent.title}</h3>
+              <p>{selectedEvent.subtitle}</p>
+            </div>
+
+            <div className={styles.memberModalRight}>
+              {selectedEvent.paragraphs.map((text, idx) => (
+                <p key={idx} style={{ marginBottom: "1rem" }}>{text}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      {selectedMembership && (
+        <div className={styles.memberModalOverlay} onClick={() => setSelectedMembership(null)}>
+          <div className={styles.memberModalCard} onClick={(event) => event.stopPropagation()}>
+            <button
+              className={styles.memberModalClose}
+              aria-label="Close membership details"
+              onClick={() => setSelectedMembership(null)}
+            >
+              ×
+            </button>
+
+            <div className={styles.memberModalLeft}>
+              <h3>{selectedMembership.title}</h3>
+              <p>{selectedMembership.description}</p>
+              <div style={{ marginTop: "1rem" }}>
+                <p style={{ fontWeight: 700, fontSize: "1.2rem", marginBottom: "0.5rem" }}>Fees</p>
+                <p style={{ fontSize: "1rem" }}>{selectedMembership.fees}</p>
               </div>
+              <button style={{
+                  marginTop: "auto",
+                  padding: "0.8rem 1.5rem",
+                  background: "#000",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "999px",
+                  fontFamily: "var(--font-display), sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1.1rem",
+                  cursor: "pointer"
+                }}
+              >
+                Register
+              </button>
+            </div>
+
+            <div className={styles.memberModalRight}>
+              <p style={{ marginBottom: "1.5rem" }}>{selectedMembership.details}</p>
+              <h4 style={{ color: "#000", fontFamily: "var(--font-display), sans-serif", fontSize: "1.3rem", marginBottom: "0.8rem" }}>Benefits:</h4>
+              <ul className={styles.benefitsList} style={{ color: "#000" }}>
+                {selectedMembership.benefits.map((benefit, idx) => (
+                  <li key={idx} style={{ color: "#000" }}>{benefit}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

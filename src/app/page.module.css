@@ -377,9 +377,14 @@
   align-items: start;
 }
 
+.sectionHeader {
+  display: flex;
+  align-items: center;
+}
+
 .sectionTitle {
   display: inline-flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 0.3rem;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(2.4rem, 5.8vw, 4rem);
@@ -583,6 +588,11 @@
   background: var(--color-primary);
   cursor: pointer;
   scroll-snap-align: start;
+  transition: transform 0.2s;
+}
+
+.memberCard:hover {
+  transform: translateY(-4px);
 }
 
 .memberModalOverlay {
@@ -597,11 +607,13 @@
 
 .memberModalCard {
   position: relative;
-  width: min(1410px, 100%);
+  width: min(800px, 95%);
+  max-height: 90vh;
+  overflow: hidden;
   border-radius: 16px;
   background: #1098a8;
   display: grid;
-  grid-template-columns: minmax(220px, 305px) minmax(0, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: 2.6rem 2.6rem 2.1rem;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
@@ -611,6 +623,7 @@
   position: absolute;
   right: 1rem;
   top: 0.8rem;
+  z-index: 10;
   width: 38px;
   height: 38px;
   border-radius: 999px;
@@ -639,25 +652,37 @@
 .memberModalLeft h3 {
   color: #fff;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(1.75rem, 2.2vw, 2.25rem);
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
   line-height: 1.2;
 }
 
 .memberModalLeft p {
   color: #fff;
   font-family: var(--font-body), sans-serif;
-  font-size: clamp(1.1rem, 1.65vw, 1.7rem);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.4;
 }
 
 .memberModalRight {
   align-self: start;
+  max-height: calc(90vh - 4.7rem);
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.memberModalRight::-webkit-scrollbar {
+  width: 6px;
+}
+
+.memberModalRight::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
 }
 
 .memberModalRight p {
   color: #000;
   font-family: var(--font-body), sans-serif;
-  font-size: clamp(1.12rem, 1.7vw, 2.2rem);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.55;
   word-break: break-word;
 }
@@ -783,10 +808,17 @@
 }
 
 .principleCard {
-  min-height: 365px;
   border-radius: 12px;
   background: var(--color-primary);
   color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.principleButton {
+  background: transparent;
+  border: none;
+  color: inherit;
   padding: 1.45rem;
   display: flex;
   flex-direction: column;
@@ -794,6 +826,8 @@
   align-items: center;
   text-align: center;
   gap: 1.1rem;
+  cursor: pointer;
+  width: 100%;
 }
 
 .principleIcon {
@@ -808,17 +842,32 @@
   font-weight: 700;
 }
 
-.principleCard h4 {
+.principleButton h4 {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(1.65rem, 2.5vw, 2.5rem);
   line-height: 1;
 }
 
-.principleCard p {
+.principleShort {
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 1.6vw, 1.35rem);
   line-height: 1.45;
   letter-spacing: 0.02em;
+}
+
+.principleExpandedContent {
+  padding: 0 1.45rem 1.45rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: -0.5rem;
+  padding-top: 1.45rem;
+}
+
+.principleExpandedContent p {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .feeHeader {
@@ -1528,8 +1577,13 @@
 }
 
 /* About Extended Section */
+.aboutContentRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .aboutExtended {
-  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1537,17 +1591,18 @@
 
 .aboutExtended h4 {
   font-family: var(--font-display), sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 700;
   margin: 0;
   color: #fff;
 }
 
 .objectiveText {
+  color: var(--color-muted-light);
   font-family: var(--font-body), sans-serif;
-  font-size: 1rem;
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.04em;
   margin: 0;
 }
 
@@ -1614,6 +1669,12 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.eventDetailCard:hover {
+  transform: translateY(-4px);
 }
 
 .eventDetailCard .eventImage {
