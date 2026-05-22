@@ -23,19 +23,19 @@ const governingCouncil = [
   {
     name: "Prof. PV Madhusudhan Rao",
     role: "Indian Institute of Technology Delhi, Vice President",
-    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
+    photo: "/members/2.png",
     bio: "Prof. P. V. M. Rao, Professor, Depts of Design & Mech Engg, IIT Delhi, has Bachelors (Mech Engg, College of Engg, Osmania Univ), Masters (IIT BHU), PhD (IIT Kanpur). He was Guest Researcher, National Institute of Standards & Technology (NIST), USA (five times, 1996\u20132007); Visiting Scientist, MIT; Visiting Faculty, Stanford Univ. He served as Head, Dept of Design (2017\u20132022) and Dean, Alumni Relations (2022\u20132024).",
   },
   {
     name: "Prof. Sougata Karmakar",
     role: "Indian Institute of Technology Guwahati, Secretary",
-    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
+    photo: "/members/3.png",
     bio: "Prof. Sougata Karmakar, Professor, Dept of Design, IIT Guwahati, has PhD (Virtual Ergonomics using Digital Human Modelling), PG Diploma in Mgmt (HRM, Pondicherry Univ). He gained research expertise in ergonomics at DIPAS, DRDO, Delhi (2004\u20132009). His interests: physical ergonomics (product & workstation design), cognitive ergonomics (information processing), design & work environment, occupational health, virtual simulation (CAD, digital human modelling).",
   },
   {
     name: "Prof. Vishal Singh",
     role: "Indian Institute of Science Bengaluru, Treasurer",
-    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
+    photo: "/members/4.png",
     bio: "Prof. Vishal Singh is an Associate Professor at the Department of Design and Manufacturing at IISc Bangalore. At IISc, Vishal leads the IMPACT4IMPACT Lab, which focuses on innovation and management of property, architectural and construction technologies for impact. He teaches course on Elements and Principles of Design, Product Design, Basics of Computing and AI for Design and Manufacturing, and New Product Development.",
   },
 ];
@@ -44,19 +44,19 @@ const taskForceMembers = [
   {
     name: "Prof. Srinivasan Venkataraman",
     role: "Department of Design (DoD), IIT Delhi",
-    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
+    photo: "/members/selected.png",
     bio: "Prof. Srinivasan Venkataraman is an Associate Professor in the Department of Design at IIT Delhi, with academic interests in design creativity and innovation, design theory and methodology, prototyping, AI in design, virtual reality, and assistive technologies.",
   },
   {
     name: "Dr. Shakuntala Acharya",
     role: "Department of Design IIT Guwahati",
-    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
+    photo: "/members/Ma'am.png",
     bio: "A designer at heart and a researcher by spirit, Dr. Shakuntala Acharya is an Assistant Professor in the Department of Design at IIT Guwahati. With a background in Architecture and a PhD from the Department of Design and Manufacturing at IISc Bengaluru, her work spans design creativity and sustainability.",
   },
   {
     name: "Prof. Prasad Onkar",
     role: "Department of Design, IIT Hyderabad",
-    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
+    photo: "/members/selected (1).png",
     bio: "Prof. Prasad Onkar is an Associate Professor and former Head of the Department of the Department of Design at IIT Hyderabad, with research interests in design computing, sketch-based conceptual design, virtual reality, and human\u2013computer interaction in design environments.",
   },
 ];
