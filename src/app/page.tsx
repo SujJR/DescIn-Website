@@ -42,16 +42,19 @@ const taskForceMembers = [
   {
     name: "Prof. Srinivasan Venkataraman",
     role: "Department of Design (DoD), IIT Delhi",
+    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
     bio: "Prof. Srinivasan Venkataraman is an Associate Professor in the Department of Design at IIT Delhi, with academic interests in design creativity and innovation, design theory and methodology, prototyping, AI in design, virtual reality, and assistive technologies.",
   },
   {
     name: "Dr. Shakuntala Acharya",
     role: "Department of Design IIT Guwahati",
+    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
     bio: "A designer at heart and a researcher by spirit, Dr. Shakuntala Acharya is an Assistant Professor in the Department of Design at IIT Guwahati. With a background in Architecture and a PhD from the Department of Design and Manufacturing at IISc Bengaluru, her work spans design creativity and sustainability.",
   },
   {
     name: "Prof. Prasad Onkar",
     role: "Department of Design, IIT Hyderabad",
+    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
     bio: "Prof. Prasad Onkar is an Associate Professor and former Head of the Department of the Department of Design at IIT Hyderabad, with research interests in design computing, sketch-based conceptual design, virtual reality, and human–computer interaction in design environments.",
   },
 ];
@@ -109,6 +112,7 @@ const membershipTypes = [
     details: "PhD students in design research who have completed their coursework and are about to begin focused research in the second or third year.",
     fees: "UG: INR 1000 | PG: INR 1500 | PhD: INR 2000 (+ 18% GST for 2Y)",
     benefits: ["Discount on events (10%)", "Access to workshops and training", "Student chapter engagement"],
+    canVote: false,
   },
   {
     title: "Associate Member",
@@ -116,6 +120,7 @@ const membershipTypes = [
     details: "Emerging researchers and professionals building solid foundations in design research methodology and project framing.",
     fees: "INR 3000 + 18% GST (2Y)",
     benefits: ["Discount on events (10%)", "Engagement in activities", "Networking opportunities"],
+    canVote: false,
   },
   {
     title: "Full Member",
@@ -123,6 +128,7 @@ const membershipTypes = [
     details: "Researchers and practitioners with active contributions to design science, publications, and mentoring activity.",
     fees: "INR 4000 + 18% GST (2Y)",
     benefits: ["Discount on events (10%)", "Contribution to democratic processes", "Full networking access", "Professional recognition"],
+    canVote: true,
   },
   {
     title: "Fellow",
@@ -130,48 +136,11 @@ const membershipTypes = [
     details: "Senior design science leaders recognized for long-term impact through research, guidance, and institution building.",
     fees: "INR 4000 + 18% GST (2Y)",
     benefits: ["Premium benefits", "Leadership opportunities", "Special recognition", "Institutional visibility"],
-  },
-  {
-    title: "Honorary Fellow",
-    description: "Exceptional contribution recognition",
-    details: "Honorary Fellows are recognized for exceptional contributions to design sciences.",
-    fees: "No fee",
-    benefits: ["Full member benefits", "Special recognitions", "Lifetime recognition"],
+    canVote: true,
   },
 ];
 
-const benefitsList = [
-  {
-    icon: "D",
-    title: "Discounts",
-    description: "10% discount in fees for each DeScIn-owned and endorsed events",
-  },
-  {
-    icon: "E",
-    title: "Engagement",
-    description: "Opportunity to be informed and engage in various activities directly or indirectly relevant to academic and professional career",
-  },
-  {
-    icon: "C",
-    title: "Contribute",
-    description: "For full members: opportunity to take part and contribute in the democratic processes within the society",
-  },
-  {
-    icon: "N",
-    title: "Network",
-    description: "Engage with and expand your academic and professional network, improving chances for internships, jobs, collaborations",
-  },
-  {
-    icon: "R",
-    title: "Recognition",
-    description: "Full membership and fellowships are recognition of professional status within the scholarly network of design sciences",
-  },
-  {
-    icon: "A",
-    title: "Access",
-    description: "Access to resources, research materials, and exclusive content",
-  },
-];
+// benefits list intentionally removed (benefits shown per-membership in modals)
 
 const eventsList = [
   {
@@ -179,18 +148,21 @@ const eventsList = [
     subtitle: "International Conference on Research into Design",
     image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
     description: "ICoRD is a series of conferences held every two years in India to bring together the international community from diverse areas of design practice, education and research. The conference delves into the multifaceted nature of design, showcasing original research and fostering collaboration. Owned by DeScIn from 2027.",
+    fullDescription: "Design is ubiquitous. All artefacts—physical objects, services, digital interfaces, and socio-technical systems—are outcomes of design. Across the globe, several countries with strong engineering and scientific bases are increasingly recognizing design research as an important domain for academic inquiry and investment. India, with its rich and diverse design heritage and a growing scientific base, has the potential to become a leader in design research. ICoRD is a unique platform for bringing together researchers from around the globe in India to deliberate on the multifaceted nature of design, showcase original research, nurture collaborations, and disseminate findings. ICoRD is organized every two years with support from various institutions. From 2027, ICoRD will be owned and organized by DeScIn, and IISc is one of India's leading research institutions contributing to this endeavor.",
   },
   {
     title: "I-4AM",
     subtitle: "International Conference on Industry 4.0 and Advanced Manufacturing",
     image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
     description: "A biennial conference series providing a platform for all stakeholders in manufacturing and Industry 4.0 to deliberate on nature, needs, challenges, and opportunities. Focus on sustainable, affordable, and human-centric Industry 4.0. Owned by DeScIn since 2026.",
+    fullDescription: "Industry 4.0 is about the transformation of manufacturing and production processes through digital technologies, data analytics, artificial intelligence, and automation. However, manufacturing also faces the challenge of balancing technological advancement with sustainability, affordability, and human-centric approaches. I-4AM provides a platform for researchers, practitioners, policymakers, and industry leaders to deliberate on the nature of Industry 4.0, discuss challenges and opportunities, and explore solutions that are inclusive and impactful. The conference has been owned by DeScIn since 2026 and supported by the Ministry of Heavy Industries, Government of India.",
   },
   {
     title: "DRM Gurukooll",
     subtitle: "Design Research Methodology Workshop",
     image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
     description: "An annual event hosted at a different institution each year with objectives of exposing designers and early career researchers to the current understanding of design and design research, and supporting them to adopt systematic research methodology. Owned by DeScIn since 2025.",
+    fullDescription: "Design is an interdisciplinary field that integrates knowledge from science, engineering, arts, and humanities. Design research is the systematic investigation of design processes, products, and systems with the goal of advancing knowledge and improving practice. DRM Gurukooll is an annual workshop that provides a platform for engaging designers and early career researchers with current understanding of design and design research, and supporting them to adopt systematic research methodology in their work. Held at different institutions each year since its inception, DRM Gurukooll has been owned by DeScIn since 2025 and has been used globally for the last 3 decades as a framework for advancing design research methodology.",
   },
 ];
 
@@ -259,8 +231,6 @@ const popularArticles = [
   "Journey Mapping 101",
   "How to Conduct a Heuristic Evaluation",
 ];
-
-const showArticlesResourcesBackup = false;
 
 function SectionTitle({ title }: { title: string }) {
   return (
@@ -332,8 +302,9 @@ export default function Home() {
   const [isAdvisoryOpen, setIsAdvisoryOpen] = useState(false);
   const [isTaskForceOpen, setIsTaskForceOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<(typeof governingCouncil)[number] | null>(null);
-  const [selectedPrinciple, setSelectedPrinciple] = useState<(typeof principlesList)[number] | null>(null);
-  const [expandedMembership, setExpandedMembership] = useState<number | null>(null);
+  const [expandedPrinciples, setExpandedPrinciples] = useState<string[]>([]);
+  const [selectedMembership, setSelectedMembership] = useState<(typeof membershipTypes)[number] | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<(typeof eventsList)[number] | null>(null);
   const governingSliderRef = useRef<HTMLDivElement | null>(null);
 
   const nextSlide = () => {
@@ -370,6 +341,12 @@ export default function Home() {
     slider.scrollBy({ left: delta, behavior: "smooth" });
   };
 
+  const togglePrincipleExpanded = (title: string) => {
+    setExpandedPrinciples((prev) =>
+      prev.includes(title) ? prev.filter((p) => p !== title) : [...prev, title]
+    );
+  };
+
   return (
     <div className={styles.page}>
       <header className={styles.siteHeader}>
@@ -384,7 +361,7 @@ export default function Home() {
                 {item.label}
               </a>
             ))}
-            <button className={styles.loginButton}>Log in</button>
+            <button type="button" className={styles.loginButton}>Log in</button>
           </nav>
         </div>
       </header>
@@ -404,12 +381,12 @@ export default function Home() {
                 ))}
               </div>
               <div className={styles.heroControlsOverlay}>
-                <button className={styles.slideArrowLeft} aria-label="Previous slide" onClick={prevSlide}>
+                <button type="button" className={styles.slideArrowLeft} aria-label="Previous slide" onClick={prevSlide}>
                   &lt;
                 </button>
                 <div className={styles.heroDots}>
                   {heroSlides.map((slide, index) => (
-                    <button
+                    <button type="button"
                       key={slide.image}
                       className={`${styles.heroDot} ${activeSlide === index ? styles.heroDotActive : ""}`}
                       aria-label={`Go to slide ${index + 1}`}
@@ -417,7 +394,7 @@ export default function Home() {
                     />
                   ))}
                 </div>
-                <button className={styles.slideArrowRight} aria-label="Next slide" onClick={nextSlide}>
+                <button type="button" className={styles.slideArrowRight} aria-label="Next slide" onClick={nextSlide}>
                   &gt;
                 </button>
               </div>
@@ -449,18 +426,23 @@ export default function Home() {
             <div className={styles.principleGrid}>
               {principlesList.map((principle) => (
                 <article
-                  className={styles.principleCard}
+                  className={`${styles.principleCard} ${expandedPrinciples.includes(principle.title) ? styles.principleCardExpanded : ""}`}
                   key={principle.title}
                   role="button"
                   tabIndex={0}
-                  onClick={() => setSelectedPrinciple(principle)}
+                  onClick={() => togglePrincipleExpanded(principle.title)}
                   onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") setSelectedPrinciple(principle);
+                    if (e.key === "Enter" || e.key === " ") togglePrincipleExpanded(principle.title);
                   }}
                 >
                   <div className={styles.principleIcon}>{principle.marker}</div>
                   <h4>{principle.title}</h4>
                   <p>{principle.shortCopy}</p>
+                  {expandedPrinciples.includes(principle.title) && (
+                    <div className={styles.principleExpandedContent}>
+                      <p>{principle.fullContent}</p>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
@@ -470,7 +452,7 @@ export default function Home() {
         <section className={`${styles.band} ${styles.lightBand} ${styles.gridLight}`} id="organisation">
           <div className={styles.container}>
             <SectionTitle title="Organisation" />
-            <p className={styles.leadText} style={{ marginBottom: "2rem" }}>
+            <p className={styles.organisationDescription}>
               DeScIn is steered by a governing council that shapes its vision, direction, and long-term growth. Comprising world-renowned leaders in design sciences, the council brings together academic excellence, institutional experience, and a shared commitment to advancing design as a rigorous and impactful discipline.
             </p>
 
@@ -501,24 +483,18 @@ export default function Home() {
 
                     <div className={styles.memberStrip} ref={governingSliderRef}>
                       {governingCouncil.map((member, index) => (
-                        <article
+                        <button
+                          type="button"
                           className={styles.memberCard}
                           key={`${member.name}-${index}`}
-                          role="button"
-                          tabIndex={0}
                           onClick={() => setSelectedMember(member)}
-                          onKeyDown={(event) => {
-                            if (event.key === "Enter" || event.key === " ") {
-                              setSelectedMember(member);
-                            }
-                          }}
                         >
                           <img src={member.photo} alt={member.name} className={styles.memberPhoto} />
                           <div className={styles.memberInfo}>
                             <h4 className={styles.memberName}>{member.name}</h4>
                             <p className={styles.memberRole}>{member.role}</p>
                           </div>
-                        </article>
+                        </button>
                       ))}
                     </div>
 
@@ -548,13 +524,16 @@ export default function Home() {
                 </div>
 
                 {isTaskForceOpen && (
-                  <div className={styles.orgCollapsedPanel}>
+                  <div className={styles.taskForceGrid}>
                     {taskForceMembers.map((member) => (
-                      <div key={member.name} className={styles.taskForceMember}>
-                        <h5>{member.name}</h5>
-                        <p className={styles.taskForceRole}>{member.role}</p>
-                        <p className={styles.taskForceBio}>{member.bio}</p>
-                      </div>
+                      <article className={styles.taskForceCard} key={member.name}>
+                        <img src={member.photo} alt={member.name} className={styles.taskForcePhoto} />
+                        <div className={styles.taskForceInfo}>
+                          <h5 className={styles.taskForceName}>{member.name}</h5>
+                          <p className={styles.taskForceRole}>{member.role}</p>
+                          <p className={styles.taskForceBio}>{member.bio}</p>
+                        </div>
+                      </article>
                     ))}
                   </div>
                 )}
@@ -593,63 +572,21 @@ export default function Home() {
             </p>
 
             <div className={styles.membershipGrid}>
-              {membershipTypes.map((type, index) => (
-                <div key={type.title} className={styles.membershipCard}>
-                  <button
-                    className={styles.membershipButton}
-                    onClick={() => setExpandedMembership(expandedMembership === index ? null : index)}
-                  >
+              {membershipTypes.map((type) => (
+                  <button type="button"
+                  key={type.title}
+                  className={styles.membershipCardButton}
+                  onClick={() => setSelectedMembership(type)}
+                >
+                  <div className={styles.membershipCardContent}>
                     <h4>{type.title}</h4>
                     <p>{type.description}</p>
-                    <div className={styles.membershipFees}>{type.fees}</div>
-                    <span className={styles.expandIcon}>{expandedMembership === index ? "−" : "+"}</span>
-                  </button>
-
-                  {expandedMembership === index && (
-                    <div className={styles.membershipExpanded}>
-                      <p className={styles.membershipDetails}>{type.details}</p>
-                      <h5>Benefits:</h5>
-                      <ul className={styles.benefitsList}>
-                        {type.benefits.map((benefit) => (
-                          <li key={benefit}>{benefit}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
+                    <div className={styles.membershipCardFees}>{type.fees}</div>
+                  </div>
+                  <span className={styles.membershipArrow}>→</span>
+                </button>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className={`${styles.band} ${styles.darkBand}`}>
-          <div className={styles.container}>
-            <div className={styles.splitIntro}>
-              <SectionTitle title="Benefits" />
-              <p className={styles.leadText}>
-                As a member of DeScIn Academy, you gain access to a range of benefits designed to support your professional growth and connection with the design sciences community.
-              </p>
-            </div>
-            <div className={styles.benefitGrid}>
-              {benefitsList.map((benefit) => (
-                <article className={styles.benefitCard} key={benefit.title}>
-                  <div className={styles.benefitIcon}>{benefit.icon}</div>
-                  <h4>{benefit.title}</h4>
-                  <p>{benefit.description}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={`${styles.band} ${styles.darkBand}`}>
-          <div className={styles.container}>
-            <div className={styles.feeHeader}>
-              <SectionTitle title="Fees" />
-            </div>
-            <p className={styles.leadText}>
-              Fees are charged for a two-year period starting from the day payment is received. Payment integration will be available soon. Current fees for various membership types are shown in the Membership section above.
-            </p>
           </div>
         </section>
 
@@ -658,14 +595,19 @@ export default function Home() {
             <SectionTitle title="Events" />
             <div className={styles.eventDetailGrid}>
               {eventsList.map((event) => (
-                <article className={styles.eventDetailCard} key={event.title}>
+                <button type="button"
+                  key={event.title}
+                  className={styles.eventCardButton}
+                  onClick={() => setSelectedEvent(event)}
+                >
                   <img src={event.image} alt={event.title} className={styles.eventImage} />
                   <div className={styles.eventDetailBody}>
                     <h4>{event.title}</h4>
                     <p className={styles.eventSubtitle}>{event.subtitle}</p>
                     <p className={styles.eventDescription}>{event.description}</p>
+                    <span className={styles.eventArrow}>Learn more →</span>
                   </div>
-                </article>
+                </button>
               ))}
             </div>
           </div>
@@ -698,15 +640,9 @@ export default function Home() {
             <SectionTitle title="Special Interest Groups" />
             <div className={styles.eventGrid}>
               {specialInterestGroups.map((group) => (
-                <article className={styles.eventCard} key={group.title}>
-                  <img src={group.image} alt={group.title} className={styles.eventImage} />
-                  <div className={styles.eventBody}>
-                    <h4>{group.title}</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur. Tellus nunc nunc morbi viverra.
-                      Diam donec eu gravida non facilisis nulla ut feugiat.
-                    </p>
-                  </div>
+                <article key={group.title} className={styles.eventGridCard}>
+                  <img src={group.image} alt={group.title} />
+                  <h4>{group.title}</h4>
                 </article>
               ))}
             </div>
@@ -716,85 +652,95 @@ export default function Home() {
         <section className={`${styles.band} ${styles.lightBand} ${styles.gridLight}`}>
           <div className={styles.container}>
             <SectionTitle title="Awards & Fellowship" />
-            <div className={styles.awardsBlock}>
-              <p className={styles.subCopy}>
-                DeScIn Academy recognizes and honors outstanding contributions to the field of design sciences through awards and fellowships, celebrating individuals who exemplify excellence and innovation.
+            <div className={styles.dividedContent}>
+              <p>
+                DeScIn Academy recognizes and honors outstanding contributions to design sciences. Our awards and fellowship programs celebrate researchers and practitioners whose work has advanced the field and inspired others.
+              </p>
+              <p>
+                Through these distinctions, we acknowledge excellence, foster collaboration, and encourage the next generation of design scientists to push boundaries and create meaningful impact.
               </p>
             </div>
           </div>
         </section>
 
-        <section id="resources">
-          <ResourceSection title="Resources" />
-        </section>
-
-        {showArticlesResourcesBackup && <ResourceSection title="Articles & Resources" dark />}
+        <ResourceSection title="Resources" dark={false} />
       </main>
 
-      <footer className={styles.siteFooter}>
-        <div className={`${styles.container} ${styles.footerInner}`}>
-          <div className={styles.footerBrand}>
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/a60ffb900e83eb04c59153aad12ceffa30044ac8?width=225" alt="DeScIn" />
-            <span>DeScIn</span>
-          </div>
-
-          <div className={styles.footerCol}>
-            <h5>Email</h5>
-            <a href="mailto:drmgurukooll@gmail.com">drmgurukooll@gmail.com</a>
-            <a href="tel:+919876543210">+91 9876543210</a>
-            <a href="tel:+919876543211">+91 9876543211</a>
-          </div>
-
-          <div className={styles.footerCol}>
-            <h5>Department of Design and Manufacturing, IISc Bengaluru</h5>
-            <p>North Guwahati, Assam 78039</p>
-            <a href="http://www.iitg.ac.in/design">http://www.iitg.ac.in/design</a>
-          </div>
-        </div>
-      </footer>
+      {/* Modals */}
 
       {selectedMember && (
-        <div className={styles.memberModalOverlay} onClick={() => setSelectedMember(null)}>
-          <div className={styles.memberModalCard} onClick={(event) => event.stopPropagation()}>
-            <button
-              className={styles.memberModalClose}
-              aria-label="Close member details"
-              onClick={() => setSelectedMember(null)}
-            >
+        <div className={styles.modalOverlay} onClick={() => setSelectedMember(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+              <button type="button" className={styles.modalClose} onClick={() => setSelectedMember(null)}>
               ×
             </button>
-
-            <div className={styles.memberModalLeft}>
-              <img src={selectedMember.photo} alt={selectedMember.name} className={styles.memberModalImage} />
-              <h3>{selectedMember.name}</h3>
-              <p>{selectedMember.role}</p>
-            </div>
-
-            <div className={styles.memberModalRight}>
-              <p>{selectedMember.bio}</p>
+            <div className={styles.memberModalLayout}>
+              <div className={styles.memberModalSticky}>
+                <img src={selectedMember.photo} alt={selectedMember.name} />
+                <h3>{selectedMember.name}</h3>
+                <p>{selectedMember.role}</p>
+              </div>
+              <div className={styles.memberModalScrollable}>
+                <p>{selectedMember.bio}</p>
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      {selectedPrinciple && (
-        <div className={styles.memberModalOverlay} onClick={() => setSelectedPrinciple(null)}>
-          <div className={styles.memberModalCard} onClick={(event) => event.stopPropagation()}>
-            <button
-              className={styles.memberModalClose}
-              aria-label="Close principle details"
-              onClick={() => setSelectedPrinciple(null)}
-            >
+      {selectedMembership && (
+        <div className={styles.modalOverlay} onClick={() => setSelectedMembership(null)}>
+          <div className={styles.membershipModal} onClick={(e) => e.stopPropagation()}>
+            <button type="button" className={styles.modalClose} onClick={() => setSelectedMembership(null)}>
               ×
             </button>
+            <div className={styles.membershipModalContent}>
+              <h3>{selectedMembership.title}</h3>
+              <p className={styles.membershipDescription}>{selectedMembership.description}</p>
+              <p className={styles.membershipDetails}>{selectedMembership.details}</p>
 
-            <div className={styles.memberModalLeft}>
-              <div className={styles.principleModalIcon}>{selectedPrinciple.marker}</div>
-              <h3>{selectedPrinciple.title}</h3>
+              <div className={styles.membershipModalSection}>
+                <h4>Fees</h4>
+                <p>{selectedMembership.fees}</p>
+              </div>
+
+              <div className={styles.membershipModalSection}>
+                <h4>Benefits</h4>
+                <ul className={styles.benefitsList}>
+                  {selectedMembership.benefits.map((benefit) => (
+                    <li key={benefit}>{benefit}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {selectedMembership.canVote && (
+                <div className={styles.membershipVotingIndicator}>
+                  <span className={styles.votingBadge}>✓ Voting Rights</span>
+                </div>
+              )}
+
+              <button type="button" className={styles.registerButton}>Register Now</button>
             </div>
+          </div>
+        </div>
+      )}
 
-            <div className={styles.memberModalRight}>
-              <p>{selectedPrinciple.fullContent}</p>
+      {selectedEvent && (
+        <div className={styles.modalOverlay} onClick={() => setSelectedEvent(null)}>
+          <div className={styles.eventModal} onClick={(e) => e.stopPropagation()}>
+            <button type="button" className={styles.modalClose} onClick={() => setSelectedEvent(null)}>
+              ×
+            </button>
+            <div className={styles.eventModalContent}>
+              <img src={selectedEvent.image} alt={selectedEvent.title} className={styles.eventModalImage} />
+              <div className={styles.eventModalInfo}>
+                <h3>{selectedEvent.title}</h3>
+                <p className={styles.eventModalSubtitle}>{selectedEvent.subtitle}</p>
+                <div className={styles.eventModalDescription}>
+                  <p>{selectedEvent.fullDescription}</p>
+                </div>
+                <button type="button" className={styles.registerButton}>Learn More</button>
+              </div>
             </div>
           </div>
         </div>
