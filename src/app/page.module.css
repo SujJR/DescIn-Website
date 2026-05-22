@@ -1409,3 +1409,290 @@
     font-size: clamp(0.66rem, 2.9vw, 0.74rem);
   }
 }
+
+/* New Membership Grid Styles */
+.membershipGrid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.membershipCard {
+  border-radius: 12px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.membershipButton {
+  width: 100%;
+  padding: 1.5rem;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-display), sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.membershipButton:hover {
+  background: rgba(1, 148, 164, 0.08);
+}
+
+.membershipButton h4 {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.membershipButton p {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+.membershipFees {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0.5rem 0 0;
+}
+
+.expandIcon {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.membershipExpanded {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.membershipDetails {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.membershipExpanded h5 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+  color: #fff;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.benefitsList li {
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.benefitsList li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* About Extended Section */
+.aboutExtended {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.aboutExtended h4 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.objectiveText {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* Task Force Member Details */
+.taskForceMember {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.taskForceMember:last-child {
+  border-bottom: none;
+}
+
+.taskForceMember h5 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+  color: #000;
+}
+
+.taskForceRole {
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #666;
+  margin: 0 0 0.5rem;
+}
+
+.taskForceBio {
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  margin: 0;
+}
+
+/* Principle Modal Icon */
+.principleModalIcon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display), sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Event Detail Grid */
+.eventDetailGrid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.eventDetailCard {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.eventDetailCard .eventImage {
+  width: 100%;
+  aspect-ratio: 389 / 200;
+  object-fit: cover;
+}
+
+.eventDetailBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.eventDetailBody h4 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.eventSubtitle {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.eventDescription {
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* Responsive adjustments for new components */
+@media (max-width: 1220px) {
+  .membershipGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .eventDetailGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .membershipGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .eventDetailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .membershipButton {
+    padding: 1.2rem;
+  }
+
+  .eventDetailBody {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .membershipButton h4 {
+    font-size: 1.2rem;
+  }
+
+  .expandIcon {
+    right: 1rem;
+  }
+
+  .eventDetailBody h4 {
+    font-size: 1.2rem;
+  }
+}
