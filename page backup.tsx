@@ -19,7 +19,6 @@
 .main {
   display: flex;
   flex-direction: column;
-  padding-top: 80px;
 }
 
 .container {
@@ -29,11 +28,9 @@
 
 /* ===== Header ===== */
 .siteHeader {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  z-index: 40;
   background: rgba(17, 17, 17, 0.92);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
@@ -239,7 +236,6 @@
 /* ===== Bands / Sections ===== */
 .band {
   padding: clamp(2.75rem, 6vw, 6.75rem) 0;
-  margin: 0;
 }
 
 .darkBand {
@@ -261,7 +257,6 @@
     linear-gradient(var(--color-grid-dark) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-grid-dark) 1px, transparent 1px);
   background-size: 80px 80px;
-  background-attachment: fixed;
 }
 
 .gridLight {
@@ -269,7 +264,6 @@
     linear-gradient(var(--color-grid-light) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-grid-light) 1px, transparent 1px);
   background-size: 80px 80px;
-  background-attachment: fixed;
 }
 
 /* ===== Section Title with dot as full stop ===== */
@@ -306,7 +300,6 @@
 
 /* ===== Lead Text - Justified ===== */
 .leadText {
-  text-align: justify;
   color: var(--color-muted-light);
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 1.7vw, 1.25rem);
@@ -316,7 +309,6 @@
 }
 
 .lightBand .leadText {
-  text-align: justify;
   color: var(--color-muted-dark);
 }
 
@@ -342,7 +334,6 @@
 }
 
 .objectiveText {
-  text-align: justify;
   color: var(--color-muted-light);
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 1.7vw, 1.25rem);
@@ -408,7 +399,6 @@
 }
 
 .principleShort {
-  text-align: justify;
   font-family: var(--font-body), sans-serif;
   font-size: clamp(0.9rem, 1.4vw, 1.15rem);
   line-height: 1.45;
@@ -417,8 +407,6 @@
 }
 
 .principleExpandedContent {
-  max-height: 150px;
-  overflow-y: auto;
   padding: 0 1.45rem 1.45rem;
   text-align: justify;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -437,7 +425,6 @@
 }
 
 .principleExpandedContent p {
-  text-align: justify;
   font-family: var(--font-body), sans-serif;
   font-size: 0.95rem;
   line-height: 1.55;
@@ -530,13 +517,6 @@
   color: #000;
   font-size: 1.2rem;
   cursor: pointer;
-}
-
-.sliderArrow:disabled,
-.sliderArrowDisabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  pointer-events: none;
 }
 
 .memberStrip {
@@ -694,10 +674,8 @@
 
 .eventImage {
   width: 100%;
-  height: 200px;
-  object-fit: contain;
-  background-color: white;
-  padding: 0.5rem;
+  aspect-ratio: 389 / 200;
+  object-fit: cover;
 }
 
 .eventDetailBody {
@@ -787,20 +765,13 @@
 }
 
 .chapterCard {
-  min-height: 200px;
+  min-height: 85px;
   border-radius: 12px;
   background: #000;
   padding: 1rem 1.15rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-.chapterCard:hover {
-  transform: translateY(-5px);
 }
 
 .chapterLogoWrap {
@@ -1096,7 +1067,6 @@
   gap: 2rem;
   padding: 2.6rem 2.6rem 2.1rem;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-  align-items: start;
 }
 
 .memberModalClose {
@@ -1120,7 +1090,6 @@
   align-content: start;
   gap: 1.15rem;
   text-align: center;
-  height: fit-content;
 }
 
 .memberModalImage {
@@ -1142,12 +1111,11 @@
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.4;
-  font-weight: 400;
 }
 
 .memberModalRight {
   align-self: start;
-  max-height: 485px;
+  max-height: calc(90vh - 4.7rem);
   overflow-y: auto;
   padding-right: 1rem;
 }
@@ -1165,7 +1133,7 @@
   color: #000;
   font-family: var(--font-body), sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.2rem);
-  line-height: 1.4;
+  line-height: 1.55;
   word-break: break-word;
   text-align: justify;
 }

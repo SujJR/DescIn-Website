@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useRef, useState, type TouchEvent } from "react";
+import { useRef, useState, useEffect, type TouchEvent } from "react";
 import styles from "./page.module.css";
 
 const REGISTER_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfKMdzKkN7l3G6QbdlpNXsDM67CuiY5HR3zOQbnVIGAV1hNcg/viewform";
@@ -17,26 +17,26 @@ const governingCouncil = [
   {
     name: "Prof. Amaresh Chakrabarti",
     role: "Indian Institute of Science Bengaluru, Founding President",
-    photo: "https://api.builder.io/api/v1/image/assets/TEMP/98d3994c9195b2584729a1c90ef55587fe4dd82b?width=778",
-    bio: "Prof. Amaresh Chakrabarti, Senior Professor & Chair, Dept of Design & Manufacturing, IISc, Bengaluru, has BE (Topper, Mech Engg, IIEST Shibpur), ME (Topper, Mech Design, IISc), PhD (Engg Design, U of Cambridge UK). For 10 years, he led Design Synthesis at EPSRC CoE Engg Design Centre (EDC), U of Cambridge. His interests: synthesis, creativity, sustainability, informatics, Industry X.0, research methodology. He published 36 books, 370+ peer reviewed articles, 13 patents, and co-authored DRM, used widely as a framework for design research.",
+    photo: "members/TF (1).png",
+    bio: "Prof. Amaresh Chakrabarti, Senior Professor & Chair, Dept of Design & Manufacturing, IISc, Bengaluru, has BE (Topper, Mech Engg, IIEST Shibpur), ME (Topper, Mech Design, IISc), PhD (Engg Design, U of Cambridge UK). For 10 years, he led Design Synthesis at EPSRC CoE Engg Design Centre (EDC), U of Cambridge. His interests: synthesis, creativity, sustainability, informatics, Industry X.0, research methodology. He published 36 books, 370+ peer reviewed articles, 13 patents, and co-authored DRM, used widely as a framework for design research. He has been Area Editor, Research in Engg Design; Regional Editor, J of Remanufacturing (Springer); Advisory Editor for 10 other Journals. He served on Advisory Board & Board of Mgmt, Design Society UK; member, CII National Committee on Design & CII Smart Manufacturing Council India; Jury, India Design Mark. He founded IDeASLab - India's first Design Observatory. He is founding chair, Intl Conf Series ICoRD & I-4AM; Chair, CIRP Design Conf 2012 & Intl Conf on Design Creativity 2015. He is an Hon. Fellow, Institution of Engg Designers, a peer soc. under UK Royal Charter; Fellow, Design Society, UK; TUM Ambassador, TUM Germany; Fellow, Design Research Soc., UK. 27 of his papers won top paper awards in Intl Conf. He co-initiated India's first indigenous Smart Factory, chairs/ed IISc Press, Springer Intl book series Design Science & Innovation, Smart Manufacturing Sub-committee, Bureau of Indian Stds. He received Careers360 2018 Award 'Most Outstanding Researcher' in Decision Sciences. He is among global top 2% researchers in 'Design Practice & Mgmt'. He is Editor-in Chief AI EDAM J (CUP). He was/won a J Nehru Doctoral Fellow, U of Cambridge 1987, ORS Award, Committee of VCs, UK 1987; Lundgren Award, U of Cambridge 1991; MG MIAA Commendation Award, UK 1994; Heiwa-Nakajima Visiting Fellow Kobe U, Japan 2007; Royal Soc. Visiting Fellow, U of Bath UK 2010; Visiting Prof, DTU Denmark 2012; Guest Prof, TUM Germany 2013; Commonwealth Reciprocal Visiting Fellow, U of Cambridge 2014; ASEM-DUO Visiting Fellow, Politecnico di Milano, Italy 2022; Jubilee Prof, Chalmers U, Sweden 2025. He received IISc Alumni Award for Excellence in Research in Engg 2022; ASME Ruth & Joel Spira Outstanding Design Educator Award 2025. He is the founding president of DeScIn - India's Academy of Design Sciences. He was elected Honorary Fellow, Condition Monitoring Soc, and Fellow, Indian National Academy of Engg, India in 2025. ",
   },
   {
     name: "Prof. PV Madhusudhan Rao",
     role: "Indian Institute of Technology Delhi, Vice President",
     photo: "/members/2.png",
-    bio: "Prof. P. V. M. Rao, Professor, Depts of Design & Mech Engg, IIT Delhi, has Bachelors (Mech Engg, College of Engg, Osmania Univ), Masters (IIT BHU), PhD (IIT Kanpur). He was Guest Researcher, National Institute of Standards & Technology (NIST), USA (five times, 1996\u20132007); Visiting Scientist, MIT; Visiting Faculty, Stanford Univ. He served as Head, Dept of Design (2017\u20132022) and Dean, Alumni Relations (2022\u20132024).",
+    bio: "Prof. P. V. M. Rao, Professor, Depts of Design & Mech Engg, IIT Delhi, has Bachelors (Mech Engg, College of Engg, Osmania Univ), Masters (IIT BHU), PhD (IIT Kanpur). He was Guest Researcher, National Institute of Standards & Technology (NIST), USA (five times, 1996–2007); Visiting Scientist, MIT; Visiting Faculty, Stanford Univ. He served as Head, Dept of Design (2017–2022) and Dean, Alumni Relations (2022–2024). His interests: product design & mfg, medical & assistive devices, innovation, entrepreneurship. He heads ICMR National Center of Assistive Health Technology (NCAHT), co-founded Assistech Lab, Khosla School of IT, and coordinated IIT Delhi Design Innovation Center (DIC), driving programmes in design, innovation & entrepreneurship. He has been on editorial boards of Intl J of Machine Tools & Manufacture (Elsevier), J of Computing & Information Science in Engg (ASME), J of Smart & Sustainable Mfg Systems (ASTM), BMJ Innovations. He holds multiple patents and designs, many commercialised, with translational research leading to products deployed in national & intl markets; founder, board member, scientific advisor to multiple start-ups & incubators. He led 70+ sponsored research, consulting & innovation projects funded by DST, ICMR, MoE, MeitY, DBT, DRDO, INAE, Boeing, Microsoft, Wellcome Trust, EPSRC, WHO, Omidyar Network, Bill & Melinda Gates Foundation, BHEL, AIIMS, Govt of Ethiopia, and collaborated with institutions incl MIT, TU Berlin, TU Darmstadt, TU Dresden, UCL London, Univ of Sheffield, EPFL, Virginia Tech, Univ of Maryland, IUPUI, Auburn Univ, City Univ of Hong Kong, Univ of Porto. He served on committees of Govt of India incl DST, DBT, ICMR, BIRAC, MeitY, CSIR, AICTE, UGC, MSME, MoE; Member, Board of Governors, IIT Delhi; Board Member, IUSTEF; Member, Startup20 Taskforce, G20. He delivered 200+ keynote/plenary/invited lectures and organised multiple intl confs & programmes incl Indo Japan Mfg Workshop, Inclusive Mfg Forum, India Social Good Summit, Biodesign Workshops, Assistive Tech programmes, and innovation bootcamps. He has also contributed extensively to capacity building in innovation and entrepreneurship through national missions and global partnerships, enabling translation of research into scalable impact. He is Fellow, ASME; recipient, Abdul Kalam Technology Innovation National Fellowship (INAE); IIT Delhi K. L. Chopra Faculty Research Award; Vasvik Industrial Research Award (2005); and two National Awards from Ministry of Science & Technology. ",
   },
   {
     name: "Prof. Sougata Karmakar",
     role: "Indian Institute of Technology Guwahati, Secretary",
     photo: "/members/3.png",
-    bio: "Prof. Sougata Karmakar, Professor, Dept of Design, IIT Guwahati, has PhD (Virtual Ergonomics using Digital Human Modelling), PG Diploma in Mgmt (HRM, Pondicherry Univ). He gained research expertise in ergonomics at DIPAS, DRDO, Delhi (2004\u20132009). His interests: physical ergonomics (product & workstation design), cognitive ergonomics (information processing), design & work environment, occupational health, virtual simulation (CAD, digital human modelling).",
+    bio: "Prof. Sougata Karmakar, Professor, Dept of Design, IIT Guwahati, has PhD (Virtual Ergonomics using Digital Human Modelling), PG Diploma in Mgmt (HRM, Pondicherry Univ). He gained research expertise in ergonomics at DIPAS, DRDO, Delhi (2004–2009). His interests: physical ergonomics (product & workstation design), cognitive ergonomics (information processing), design & work environment, occupational health, virtual simulation (CAD, digital human modelling). He is associated with Ergonomics Laboratory, Dept of Design, IIT Guwahati, and continues research in ergonomics & human factors. He supervised PhD scholars and is currently guiding doctoral students. He has conducted multiple workshops/webinars in ergonomics, human factors, occupational health & safety, and industrial design in India and abroad. He published journal papers and papers in proceedings; reviewer for multiple intl journals including Intl J of Injury Control & Safety Promotion, Intl J of Industrial Ergonomics, Physiology & Behavior, Current Science, Safety Science, HOMO, SpringerPlus, JIPE, J of Institution of Engineers (India), Textile Research J, Malaysian J of Nutrition, Intl J of Workplace Health Mgmt, Defence Life Science J, Intl J of Forensic Engg & Mgmt, Risk Mgmt & Healthcare Policy. He holds utility patents and design patents. He served as Professor (2022– ), Assoc Professor (2016–2022), Asst Professor (2010–2016), IIT Guwahati; Asst Professor, K.G. College of Health Sciences (2010); Research Fellow, DIPAS DRDO (2004–2009); Lecturer, Dept of Physiology, Krishnagar Govt College (2004). He is Secretary, Scientific Committee on MSDs, ICOH; Executive Committee Member, Indian Society of Ergonomics; Member, Ergonomics Sectional Committee, BIS, Govt of India. He organised/co-organised multiple programmes incl QIP Ergonomics & Technology Applications, Typography Day 2013, Intl Ergonomics Conf HWWE 2014 & 2021, Automotive Ergonomics training (TATA Elxsi), and TEQIP courses on ergonomics & Industry 4.0. He is recipient of ICOH Paper Presentation Grant (2022), ICOH Travel Grant (2018), Prof Sachidananda Banerjee Memorial Research Award (2012), and reviewing excellence recognition (DRDO, 2020); his co-authored paper received ‘Most Distinguished Paper’ award at ICoRD 2021. ",
   },
   {
     name: "Prof. Vishal Singh",
     role: "Indian Institute of Science Bengaluru, Treasurer",
     photo: "/members/4.png",
-    bio: "Prof. Vishal Singh is an Associate Professor at the Department of Design and Manufacturing at IISc Bangalore. At IISc, Vishal leads the IMPACT4IMPACT Lab, which focuses on innovation and management of property, architectural and construction technologies for impact. He teaches course on Elements and Principles of Design, Product Design, Basics of Computing and AI for Design and Manufacturing, and New Product Development.",
+    bio: "Prof. Vishal Singh is an Associate Professor at the Department of Design and Manufacturing at IISc Bangalore. At IISc, Vishal leads the IMPACT4IMPACT Lab, which focuses on innovation and management of property, architectural and construction technologies for impact. He teachers course on Elements and Principles of Design, Product Design, Basics of Computing and AI for Design and Manufacturing, and New Product Development.Before returning to IISc as a faculty in his home department, Vishal worked as an Assistant Professor in the Department of Civil Engineering at Aalto University– Finland, and also served briefly as an Innovation Director for the Data-Driven Construction Innovation Hub at the Helsinki Metropolia University of Applied Sciences– Finland. Before Finland, Vishal held multiple academic research positions in Australia at The University of Sydney, The University of Newcastle, and Deakin University. Vishal received his PhD from The University of Sydney, an MDes from IISc, and a B.Arch from BIT Mesra.Vishal’s research focuses on the interface of design thinking, systems thinking, and computational thinking, which are applied to various problem contexts, including the built environment. Vishal has published over 125 peer-reviewed international research articles, including 36 journal papers. Vishal’s most notable and cited research is in topics related to building information modelling, digital twin, and generative design. He publishes across design, construction management, informatics, product lifecycle management, and decision sciences. Vishal has recently co-founded SpaCyPhy Tech Private Limited, a company incubated at ArtPark and FSID, IISc. Another spin-off emerging from the MDes projects is Wegro CleanTech Private Limited, an agritech startup with DM alumni Sunandan Paul and Suraj Kesri as co-founders. Previously, Vishal co-founded and served as the Chairman of the Board (2017-2023) at VisuaLynk Oy. This research-based Finnish start-up emerged as a spin-off from Vishal’s research group at Aalto University. ",
   },
 ];
 
@@ -45,19 +45,19 @@ const taskForceMembers = [
     name: "Prof. Srinivasan Venkataraman",
     role: "Department of Design (DoD), IIT Delhi",
     photo: "/members/selected.png",
-    bio: "Prof. Srinivasan Venkataraman is an Associate Professor in the Department of Design at IIT Delhi, with academic interests in design creativity and innovation, design theory and methodology, prototyping, AI in design, virtual reality, and assistive technologies.",
+    bio: "Prof. Srinivasan Venkataraman is an Associate Professor in the Department of Design at IIT Delhi, with academic interests in design creativity and innovation, design theory and methodology, prototyping, AI in design, virtual reality, and assistive technologies. His work reflects a strong engagement with both foundational design research and its application in teaching and practice. Having held research and academic positions at IIT Delhi, SUTD, TU Munich, and IISc, he has contributed extensively to design scholarship, pedagogy, and research leadership. As a member of the DeScIn Task Force, he supports the academy’s activities, bringing a methodical and academically grounded perspective to its initiatives. His contributions include leading and collaborating on funded projects in areas such as assistive technologies, virtual reality-based training systems, and national design initiatives, alongside a strong body of publications in leading international journals and conferences. He is also actively engaged in the global design research community through editorial roles, conference leadership, and mentorship of students and researchers. ",
   },
   {
     name: "Dr. Shakuntala Acharya",
     role: "Department of Design IIT Guwahati",
     photo: "/members/Ma'am.png",
-    bio: "A designer at heart and a researcher by spirit, Dr. Shakuntala Acharya is an Assistant Professor in the Department of Design at IIT Guwahati. With a background in Architecture and a PhD from the Department of Design and Manufacturing at IISc Bengaluru, her work spans design creativity and sustainability.",
+    bio: "A designer at heart and a researcher by spirit, Dr. Shakuntala Acharya is an Assistant Professor in the Department of Design at IIT Guwahati. With a background in Architecture and a PhD from the Department of Design and Manufacturing at IISc Bengaluru, her work spans design creativity and sustainability, design for education and pedagogy, and design methodology, with a strong emphasis on learning systems, assistive design, and smart cities. Having held academic and research roles at IIT Guwahati and IISc Bengaluru, she has contributed to design scholarship and pedagogy through teaching, research, and the development of design methods and tools. Her work reflects a strong engagement with co-creation approaches and stakeholder-centred design across diverse contexts, Her contributions include involvement in Erasmus+ and DST-funded projects, problem-based learning initiatives, and editorial roles in leading design research journals, alongside a growing body of publications in international conferences and journals. As part of the DeScIn Task Force, she supports the academy’s activities and coordination, bringing a systems-oriented and pedagogy-driven perspective to its initiatives. ",
   },
   {
     name: "Prof. Prasad Onkar",
     role: "Department of Design, IIT Hyderabad",
     photo: "/members/selected (1).png",
-    bio: "Prof. Prasad Onkar is an Associate Professor and former Head of the Department of the Department of Design at IIT Hyderabad, with research interests in design computing, sketch-based conceptual design, virtual reality, and human\u2013computer interaction in design environments.",
+    bio: "Prof. Prasad Onkar is an Associate Professor and former Head of the Department of the Department of Design at IIT Hyderabad, with research interests in design computing, sketch-based conceptual design, virtual reality, and human–computer interaction in design environments. His work focuses on enabling intuitive and immersive tools to support early-stage design thinking and conceptualisation. Having held academic and research roles at IIT Hyderabad, IIT Guwahati, Politecnico di Milano, and IISc Bengaluru, he has contributed to design research through work on sketch understanding, 3D sketching systems, and collaborative design environments. His work reflects a strong engagement with integrating computational methods and interactive technologies into design processes. His contributions include the development of virtual and haptic-based sketching systems, collaborative conceptual design tools, and research in immersive design environments, alongside publications in international journals and conferences and recognition through awards and fellowships. As part of the DeScIn Task Force, he supports the academy’s activities and coordination, bringing a technology-driven and design-computation perspective to its initiatives. ",
   },
 ];
 
@@ -142,7 +142,7 @@ const eventsList = [
   {
     title: "ICoRD",
     subtitle: "International Conference on Research into Design - (owned from 2027)",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
+    image: "/members/image.png",
     description: "ICoRD is a series of conferences intended to be held every two years in India to bring together the international community...",
     link: "https://dm.iisc.ac.in/icord27/",
     paragraphs: [
@@ -154,7 +154,7 @@ const eventsList = [
   {
     title: "I-4AM",
     subtitle: "International Conference on Industry 4.0 and Advanced Manufacturing - (owned since 2026)",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
+    image: "/members/i4AM.jpeg",
     description: "Industry 4.0 is about using connected intelligence to usher in greater productivity, quality, flexibility, safety and resource utilisation...",
     link: "https://dm.iisc.ac.in/dm/2025/02/12/i-4am-2026-call-for-abstracts/",
     paragraphs: [
@@ -166,9 +166,9 @@ const eventsList = [
   {
     title: "DRM Gurukooll",
     subtitle: "Design Research Methodology Workshop - (owned since 2025)",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
+    image: "/members/DRM.jpeg",
     description: "\u201CDesign is an interdisciplinary discipline\u201D with many facets: people, product, process, tools, economy and ecology...",
-    link: "/drm",
+    link: "/coming-soon",
     paragraphs: [
       "\u201CDesign is an interdisciplinary discipline\u201D with many facets: people, product, process, tools, economy and ecology, that interact in the ways designing and their outcomes are produced. While designing involves research of market and users, breakthrough design innovations are often result of focussed research into the phenomena and practice of design.",
       "DRM Gurukooll is an annual event hosted, under the auspices of DeScIn \u2013 Academy of Design Science Foundation India, at a different institution each year, with the objectives of exposing designers and early (career) design researchers to the current understanding of design and design research, and supporting them to adopt a systematic research methodology.",
@@ -209,30 +209,36 @@ const awardsData = [
 const specialInterestGroups = [
   {
     title: "Design Education",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778"
   },
   {
     title: "Design Research Quality",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778"
   },
   {
     title: "Design Research Methodology",
-    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778",
+    image: "https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778"
   },
 ];
 
 const studentChapters = [
   {
     name: "IIT Guwahati",
-    logo: "https://api.builder.io/api/v1/image/assets/TEMP/48cf9a3ba77762c599d85f2401f4a6656f1c6e10?width=120",
+    logo: "/members/IIT_Guwahati_Logo.svg.png",
+    image: "/members/IITG.jpeg",
+    link: "/coming-soon"
   },
   {
     name: "IISc Bengaluru",
-    logo: "https://api.builder.io/api/v1/image/assets/TEMP/a5bdcf5c23169b79d9455994d2119a099d16bd11?width=120",
+    logo: "/members/images.png",
+    image: "/members/IITG.jpeg",
+    link: "/coming-soon"
   },
   {
     name: "IIT Hyderabad",
-    logo: "https://api.builder.io/api/v1/image/assets/TEMP/3f26a66d34e3ec450ff86a5d2eb991c5c41e201e?width=120",
+    logo: "/members/IITH logo.png",
+    image: "/members/IITH.jpeg",
+    link: "/coming-soon"
   },
 ];
 
@@ -278,7 +284,7 @@ function SectionTitle({ title }: { title: string }) {
   return (
     <h2 className={styles.sectionTitle}>
       <span>{title}</span>
-      <span className={styles.sectionDot} aria-hidden="true" />
+      <span className={styles.sectionDot} aria-hidden="true"/>
     </h2>
   );
 }
@@ -343,9 +349,47 @@ export default function Home() {
   const [expandedPrinciple, setExpandedPrinciple] = useState<string | null>(null);
   const [selectedMembership, setSelectedMembership] = useState<(typeof membershipTypes)[number] | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<(typeof eventsList)[number] | null>(null);
+  const [selectedChapter, setSelectedChapter] = useState<(typeof studentChapters)[number] | null>(null);
   const [selectedAward, setSelectedAward] = useState<(typeof awardsData)[number] | null>(null);
   const governingSliderRef = useRef<HTMLDivElement | null>(null);
   const taskForceSliderRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollGoverningLeft, setCanScrollGoverningLeft] = useState(false);
+  const [canScrollGoverningRight, setCanScrollGoverningRight] = useState(true);
+  const [canScrollTaskForceLeft, setCanScrollTaskForceLeft] = useState(false);
+  const [canScrollTaskForceRight, setCanScrollTaskForceRight] = useState(true);
+
+  useEffect(() => {
+    const checkScroll = (slider: HTMLDivElement | null, setCanLeft: (v: boolean) => void, setCanRight: (v: boolean) => void) => {
+      if (!slider) return;
+      const canLeft = slider.scrollLeft > 0;
+      const canRight = slider.scrollLeft < slider.scrollWidth - slider.clientWidth;
+      setCanLeft(canLeft);
+      setCanRight(canRight);
+    };
+
+    const governingSlider = governingSliderRef.current;
+    const taskForceSlider = taskForceSliderRef.current;
+
+    const handleGoverningScroll = () => {
+      checkScroll(governingSlider, setCanScrollGoverningLeft, setCanScrollGoverningRight);
+    };
+
+    const handleTaskForceScroll = () => {
+      checkScroll(taskForceSlider, setCanScrollTaskForceLeft, setCanScrollTaskForceRight);
+    };
+
+    governingSlider?.addEventListener('scroll', handleGoverningScroll);
+    taskForceSlider?.addEventListener('scroll', handleTaskForceScroll);
+
+    // Initial check
+    handleGoverningScroll();
+    handleTaskForceScroll();
+
+    return () => {
+      governingSlider?.removeEventListener('scroll', handleGoverningScroll);
+      taskForceSlider?.removeEventListener('scroll', handleTaskForceScroll);
+    };
+  }, [governingCouncil, taskForceMembers]);
 
   const nextSlide = () => setActiveSlide((c) => (c + 1) % heroSlides.length);
   const prevSlide = () => setActiveSlide((c) => (c === 0 ? heroSlides.length - 1 : c - 1));
@@ -505,7 +549,7 @@ export default function Home() {
                 </div>
                 {isGoverningOpen && (
                   <div className={styles.councilSliderWrap}>
-                    <button className={styles.sliderArrow} aria-label="Previous" onClick={() => slideGoverningCouncil("left")}>&lt;</button>
+                    <button className={`${styles.sliderArrow} ${!canScrollGoverningLeft ? styles.sliderArrowDisabled : ''}`} aria-label="Previous" onClick={() => slideGoverningCouncil("left")} disabled={!canScrollGoverningLeft}>&lt;</button>
                     <div className={styles.memberStrip} ref={governingSliderRef}>
                       {governingCouncil.map((member, index) => (
                         <article className={styles.memberCard} key={`${member.name}-${index}`} role="button" tabIndex={0} onClick={() => setSelectedMember(member)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setSelectedMember(member); }}>
@@ -517,7 +561,7 @@ export default function Home() {
                         </article>
                       ))}
                     </div>
-                    <button className={styles.sliderArrow} aria-label="Next" onClick={() => slideGoverningCouncil("right")}>&gt;</button>
+                    <button className={`${styles.sliderArrow} ${!canScrollGoverningRight ? styles.sliderArrowDisabled : ''}`} aria-label="Next" onClick={() => slideGoverningCouncil("right")} disabled={!canScrollGoverningRight}>&gt;</button>
                   </div>
                 )}
               </div>
@@ -534,7 +578,7 @@ export default function Home() {
                 </div>
                 {isTaskForceOpen && (
                   <div className={styles.councilSliderWrap}>
-                    <button className={styles.sliderArrow} aria-label="Previous" onClick={() => slideTaskForce("left")}>&lt;</button>
+                    <button className={`${styles.sliderArrow} ${!canScrollTaskForceLeft ? styles.sliderArrowDisabled : ''}`} aria-label="Previous" onClick={() => slideTaskForce("left")} disabled={!canScrollTaskForceLeft}>&lt;</button>
                     <div className={styles.memberStrip} ref={taskForceSliderRef}>
                       {taskForceMembers.map((member, index) => (
                         <article className={styles.memberCard} key={`${member.name}-${index}`} role="button" tabIndex={0} onClick={() => setSelectedMember(member)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setSelectedMember(member); }}>
@@ -546,7 +590,7 @@ export default function Home() {
                         </article>
                       ))}
                     </div>
-                    <button className={styles.sliderArrow} aria-label="Next" onClick={() => slideTaskForce("right")}>&gt;</button>
+                    <button className={`${styles.sliderArrow} ${!canScrollTaskForceRight ? styles.sliderArrowDisabled : ''}`} aria-label="Next" onClick={() => slideTaskForce("right")} disabled={!canScrollTaskForceRight}>&gt;</button>
                   </div>
                 )}
               </div>
@@ -608,7 +652,7 @@ export default function Home() {
                     <p className={styles.eventSubtitle}>{event.subtitle}</p>
                     <p className={styles.eventDescription}>{event.description}</p>
                     <a href={event.link} target={event.link.startsWith("http") ? "_blank" : undefined} rel={event.link.startsWith("http") ? "noopener noreferrer" : undefined} className={styles.eventCardLink} onClick={(e) => e.stopPropagation()}>
-                      {event.title === "DRM Gurukooll" ? "Learn More" : `Visit ${event.title}`} &rarr;
+                      {event.title === "DRM Gurukooll" ? "Learn More" : `Visit ${event.title}`} {" →"}
                     </a>
                   </div>
                 </article>
@@ -630,7 +674,7 @@ export default function Home() {
             </div>
             <div className={styles.chapterGrid}>
               {studentChapters.map((chapter, index) => (
-                <article className={styles.chapterCard} key={`${chapter.name}-${index}`}>
+                <article className={styles.chapterCard} key={`${chapter.name}-${index}`} role="button" tabIndex={0} onClick={() => setSelectedChapter(chapter)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setSelectedChapter(chapter); }}>
                   <div className={styles.chapterLogoWrap}>
                     <img src={chapter.logo} alt={chapter.name} />
                   </div>
@@ -744,7 +788,7 @@ export default function Home() {
                 <p key={idx} style={{ marginBottom: "1rem" }}>{text}</p>
               ))}
               <a href={selectedEvent.link} target={selectedEvent.link.startsWith("http") ? "_blank" : undefined} rel={selectedEvent.link.startsWith("http") ? "noopener noreferrer" : undefined} className={styles.eventModalLink}>
-                {selectedEvent.title === "DRM Gurukooll" ? "Learn More" : `Visit ${selectedEvent.title}`} &rarr;
+                {selectedEvent.title === "DRM Gurukooll" ? "Learn More" : `Visit ${selectedEvent.title}`} {" →"}
               </a>
             </div>
           </div>
@@ -805,6 +849,38 @@ export default function Home() {
                 </>
               )}
             </div>
+          </div>
+        </div>
+      )}
+
+      {selectedChapter && (
+        <div className={styles.memberModalOverlay} onClick={() => setSelectedChapter(null)}>
+          <div className={styles.memberModalCard} onClick={(e) => e.stopPropagation()} style={{ flexDirection: 'column', alignItems: 'flex-start', maxWidth: '900px', maxHeight: '90vh', display: 'flex' }}>
+            <button className={styles.memberModalClose} aria-label="Close chapter details" onClick={() => setSelectedChapter(null)}>×</button>
+            
+            <div style={{ width: '100%', height: '550px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src={selectedChapter.image} alt={selectedChapter.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            </div>
+            <a 
+              href={selectedChapter.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{
+                marginTop: '1.5rem',
+                padding: '0.8rem 1.5rem',
+                background: '#000',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '999px',
+                fontFamily: 'var(--font-display), sans-serif',
+                fontWeight: 700,
+                fontSize: '1.1rem',
+                cursor: 'pointer',
+                textDecoration: 'none',
+                display: 'inline-block',
+              }}>
+              Visit Website
+            </a>
           </div>
         </div>
       )}
