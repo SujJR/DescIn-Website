@@ -340,6 +340,51 @@ function ResourceSection({ title, dark }: { title: string; dark?: boolean }) {
 }
 
 export default function Home() {
+  const [headerHidden, setHeaderHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const hideTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const isMobile = () => window.innerWidth <= 980;
+
+    const showHeader = () => {
+      setHeaderHidden(false);
+      if (hideTimeout.current) clearTimeout(hideTimeout.current);
+      hideTimeout.current = setTimeout(() => {
+        if (isMobile()) setHeaderHidden(true);
+      }, 2000);
+    };
+
+    const handleScroll = () => {
+      if (!isMobile()) {
+        setHeaderHidden(false);
+        return;
+      }
+      const currentY = window.scrollY;
+      if (currentY < lastScrollY.current) {
+        // scrolling up
+        showHeader();
+      } else if (currentY > lastScrollY.current && currentY > 60) {
+        // scrolling down
+        setHeaderHidden(true);
+      }
+      lastScrollY.current = currentY;
+    };
+
+    const handleTouch = () => {
+      if (isMobile()) showHeader();
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("touchstart", handleTouch, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchstart", handleTouch);
+      if (hideTimeout.current) clearTimeout(hideTimeout.current);
+    };
+  }, []);
+
   const [activeSlide, setActiveSlide] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [isGoverningOpen, setIsGoverningOpen] = useState(true);
@@ -425,7 +470,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <header className={styles.siteHeader}>
+      <header className={`${styles.siteHeader} ${headerHidden ? styles.headerHidden : ''}`}>
         <div className={`${styles.container} ${styles.headerInner}`}>
           <a className={styles.brand} href="#">
             <img src="https://api.builder.io/api/v1/image/assets/TEMP/ec3db5819aa6d2f09c6b92fbd6c528b02034f34f?width=92" alt="DeScIn logo" />
