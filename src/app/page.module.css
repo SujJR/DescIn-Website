@@ -366,12 +366,14 @@
 }
 
 .principleCard {
+  position: relative;
   border-radius: 12px;
   background: var(--color-primary);
   color: #fff;
   display: flex;
   flex-direction: column;
   min-height: 280px;
+  overflow: hidden;
 }
 
 .principleCardExpanded {
