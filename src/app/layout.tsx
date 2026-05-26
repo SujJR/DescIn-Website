@@ -21,7 +21,8 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "DeScIn - Design Sciences Foundation India",
+  metadataBase: new URL("https://descin.vercel.app"),
+  title: "DeScIn - Design Society India",
   description:
     "DeScIn official website featuring membership, events, resources, chapters, and design research initiatives.",
   icons: {
@@ -29,14 +30,17 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
   },
   openGraph: {
-    title: "DeScIn - Design Sciences Foundation India",
+    title: "DeScIn - Design Society India",
     description:
       "DeScIn official website featuring membership, events, resources, chapters, and design research initiatives.",
+    siteName: "DeScIn",
+    type: "website",
     images: [
       {
         url: "/image.png",
         width: 1200,
         height: 630,
+        alt: "DeScIn - Design Society India",
       },
     ],
   },
