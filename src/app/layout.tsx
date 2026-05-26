@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/image.png",
-        width: 1200,
-        height: 630,
+        url: "/favicon.svg",
+        width: 512,
+        height: 512,
         alt: "DeScIn - Design Society India",
       },
     ],
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "DeScIn - Design Sciences Foundation India",
     description:
       "DeScIn official website featuring membership, events, resources, chapters, and design research initiatives.",
-    images: ["/image.png"],
+    images: ["/favicon.svg"],
   },
 };
 
