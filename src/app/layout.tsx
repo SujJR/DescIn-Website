@@ -34,18 +34,18 @@ export const metadata: Metadata = {
       "DeScIn official website featuring membership, events, resources, chapters, and design research initiatives.",
     images: [
       {
-        url: "/favicon.svg",
-        width: 46,
-        height: 44,
+        url: "/image.png",
+        width: 1200,
+        height: 630,
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "DeScIn - Design Sciences Foundation India",
     description:
       "DeScIn official website featuring membership, events, resources, chapters, and design research initiatives.",
-    images: ["/favicon.svg"],
+    images: ["/image.png"],
   },
 };
 
