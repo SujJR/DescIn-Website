@@ -1285,6 +1285,44 @@
 }
 
 /* ===== Responsive ===== */
+.footerLogoSection {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.footerLogo {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.footerLogoText {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footerLogoText p {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.footerLogoText a {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-decoration: none;
+}
+
+.footerLogoText a:hover {
+  text-decoration: underline;
+}
 @media (hover: hover) and (pointer: fine) {
   .navLink:hover {
     background: rgba(255, 255, 255, 0.09);
