@@ -790,15 +790,11 @@ export default function Home() {
           <div className={styles.footerCol}>
             <h5>Email</h5>
             <a href="mailto:drmgurukooll@gmail.com">drmgurukooll@gmail.com</a>
-            <a href="tel:+919876543210">+91 9876543210</a>
-            <a href="tel:+919876543211">+91 9876543211</a>
           </div>
            <div className={styles.footerCol} style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-             <img src="/members/IIT_Guwahati_Logo.svg.png" alt="IIT Guwahati" style={{ width: '3.5rem', height: '3.5rem', flexShrink: 0 }} />
              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                <h5>Department of Design and Manufacturing, IISc Bengaluru </h5>
-               <p>North Guwahati, Assam 78039</p>
-               <a href="http://www.iitg.ac.in/design" style={{ textDecoration: 'none' }}>http://www.iitg.ac.in/design</a>
+               <p>CV Raman Road, Bengaluru 560012</p>
              </div>
            </div>
         </div>
