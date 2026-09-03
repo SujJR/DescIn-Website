@@ -289,12 +289,19 @@ function SectionTitle({ title }: { title: string }) {
   );
 }
 
-function ResourceSection({ title, dark }: { title: string; dark?: boolean }) {
+function ResourceSection({ title, dark, comingSoon }: { title: string; dark?: boolean; comingSoon?: boolean }) {
   return (
     <section className={`${styles.band} ${dark ? styles.blackBand : styles.lightBand} ${dark ? styles.gridDark : styles.gridLight}`}>
       <div className={styles.container}>
-        <SectionTitle title={title} />
-        <div className={`${styles.resourceLayout} ${dark ? styles.resourceLayoutDark : ""}`}>
+        {comingSoon ? (
+          <div className={styles.orgTitleGroup} style={{ marginBottom: "2rem" }}>
+            <SectionTitle title={title} />
+            <span className={styles.comingSoonPill}>Coming soon</span>
+          </div>
+        ) : (
+          <SectionTitle title={title} />
+        )}
+        <div className={`${styles.resourceLayout} ${dark ? styles.resourceLayoutDark : ""}`} style={comingSoon ? { display: "none" } : undefined}>
           <aside className={styles.resourceSidebar}>
             <div className={styles.sidebarGroup}>
               <h4>Topics</h4>
@@ -730,24 +737,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Special Interest Groups */}
-        <section className={`${styles.band} ${styles.lightBand} ${styles.gridLight}`}>
-          <div className={styles.container}>
-            <SectionTitle title="Special Interest Groups" />
-            <div className={styles.eventGrid}>
-              {specialInterestGroups.map((group) => (
-                <article className={styles.eventCard} key={group.title}>
-                  <img src={group.image} alt={group.title} className={styles.eventImage} />
-                  <div className={styles.eventBody}>
-                    <h4>{group.title}</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur. Tellus nunc nunc morbi viverra. Diam donec eu gravida non facilisis nulla ut feugiat.</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Awards & Fellowship */}
         <section className={`${styles.band} ${styles.lightBand} ${styles.gridLight}`}>
           <div className={styles.container}>
@@ -773,12 +762,33 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Resources */}
-        <section id="resources">
-          <ResourceSection title="Resources" />
+        {/* Special Interest Groups */}
+        <section className={`${styles.band} ${styles.lightBand} ${styles.gridLight}`}>
+          <div className={styles.container}>
+            <div className={styles.orgTitleGroup} style={{ marginBottom: "2rem" }}>
+              <SectionTitle title="Special Interest Groups" />
+              <span className={styles.comingSoonPill}>Coming soon</span>
+            </div>
+            <div className={styles.eventGrid} style={{ display: "none" }}>
+              {specialInterestGroups.map((group) => (
+                <article className={styles.eventCard} key={group.title}>
+                  <img src={group.image} alt={group.title} className={styles.eventImage} />
+                  <div className={styles.eventBody}>
+                    <h4>{group.title}</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur. Tellus nunc nunc morbi viverra. Diam donec eu gravida non facilisis nulla ut feugiat.</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
 
-        {showArticlesResourcesBackup && <ResourceSection title="Articles & Resources" dark />}
+        {/* Resources */}
+        <section id="resources">
+          <ResourceSection title="Resources" comingSoon />
+        </section>
+
+        {showArticlesResourcesBackup && <ResourceSection title="Articles & Resources" dark comingSoon />}
       </main>
 
       <footer className={styles.siteFooter}>
