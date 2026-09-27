@@ -615,6 +615,23 @@
   font-weight: 400;
 }
 
+.memberEmail {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  word-break: break-all;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  margin-top: 0.15rem;
+}
+
+.memberEmail:hover {
+  color: #fff;
+  text-decoration-color: #fff;
+}
+
 .orgCollapsedPanel {
   padding: 0 0 1rem;
 }
@@ -1154,6 +1171,22 @@
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   line-height: 1.4;
   font-weight: 400;
+}
+
+.memberModalEmail {
+  color: #fff;
+  font-family: var(--font-body), sans-serif;
+  font-size: 1.05rem;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+  word-break: break-all;
+  display: inline-block;
+  margin-top: -0.4rem;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.memberModalEmail:hover {
+  text-decoration-color: #fff;
 }
 
 .memberModalRight {

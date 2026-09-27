@@ -68,18 +68,21 @@ const secretariatMembers = [
   {
     name: "Nishath Salma",
     role: "Administrative Support",
+    email: "nishath@fsid-iisc.in",
     photo: "/members/Nishath.png",
     bio: "Mrs Nishath Salma is the Administrative Assistant at IDeAS Lab, Department of Design and Manufacturing, IISc, where she supports academic administration, finance, SAP operations, travel, and project coordination. She brings over 20 years of professional experience across research, healthcare, and legal organisations, with expertise in academic administration, event management, documentation, logistics, and stakeholder coordination. She plays a key role in enabling the smooth execution of research, institutional, and administrative activities through effective operational support.",
   },
   {
     name: "Apala Chakrabarti",
     role: "Social Media Support",
+    email: "apala.descin@outlook.com",
     photo: "/members/Apala.png",
     bio: "A researcher, engineer, and designer exploring the intersection of artificial intelligence, sustainable product development, and Industry 4.0. Her work focuses on developing intelligent design support methods that enable engineers to make informed decisions during the early stages of the product development process. She is passionate about translating emerging technologies into practical, sustainable, and human-centred solutions through research, design, and innovation. Her broader research interests include AI-assisted design, sustainability assessment, design cognition, and responsible innovation.",
   },
   {
     name: "Mary Ranjeetha",
     role: "Editorial Support",
+    email: "maryr@iisc.ac.in",
     photo: "/members/Mary.png",
     bio: "An editorial and research administration professional with over a decade of experience supporting scholarly publications, peer review management, website content management, institutional repositories and scientific communication. Skilled in editorial and publication workflows by supporting researchers through the complete manuscript submission and publication process that includes manuscript processing, plagiarism screening, peer review coordination, production of journal and conference proceedings with SpringerNature.",
   },
@@ -422,7 +425,7 @@ export default function Home() {
   const [isAdvisoryOpen, setIsAdvisoryOpen] = useState(false);
   const [isTaskForceOpen, setIsTaskForceOpen] = useState(false);
   const [isSecretariatOpen, setIsSecretariatOpen] = useState(false);
-  const [selectedMember, setSelectedMember] = useState<{name: string; role: string; bio: string; photo?: string} | null>(null);
+  const [selectedMember, setSelectedMember] = useState<{name: string; role: string; bio: string; photo?: string; email?: string} | null>(null);
   const [expandedPrinciple, setExpandedPrinciple] = useState<string | null>(null);
   const [selectedMembership, setSelectedMembership] = useState<(typeof membershipTypes)[number] | null>(null);
   const [selectedEvent, setSelectedEvent] = useState<(typeof eventsList)[number] | null>(null);
@@ -736,6 +739,15 @@ export default function Home() {
                           <div className={styles.memberInfo}>
                             <h4 className={styles.memberName}>{member.name}</h4>
                             <p className={styles.memberRole}>{member.role}</p>
+                            {member.email && (
+                              <a 
+                                href={`mailto:${member.email}`} 
+                                className={styles.memberEmail}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                {member.email}
+                              </a>
+                            )}
                           </div>
                         </article>
                       ))}
@@ -903,6 +915,11 @@ export default function Home() {
               {selectedMember.photo && <img src={selectedMember.photo} alt={selectedMember.name} className={styles.memberModalImage} />}
               <h3>{selectedMember.name}</h3>
               <p>{selectedMember.role}</p>
+              {selectedMember.email && (
+                <a href={`mailto:${selectedMember.email}`} className={styles.memberModalEmail}>
+                  {selectedMember.email}
+                </a>
+              )}
             </div>
             <div className={styles.memberModalRight}>
               <p>{selectedMember.bio}</p>
