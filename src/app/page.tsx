@@ -4,7 +4,10 @@
 import { useRef, useState, useEffect, type TouchEvent } from "react";
 import styles from "./page.module.css";
 
-const REGISTER_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfKMdzKkN7l3G6QbdlpNXsDM67CuiY5HR3zOQbnVIGAV1hNcg/viewform";
+// Registration Form URL
+// Temporarily pointing to "/coming-soon". Replace with the new registration form URL when ready to collect registrations.
+// Example: const REGISTER_URL = "https://docs.google.com/forms/d/e/.../viewform";
+const REGISTER_URL = "/coming-soon";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -58,6 +61,27 @@ const taskForceMembers = [
     role: "Department of Design, IIT Hyderabad",
     photo: "/members/selected (1).png",
     bio: "Prof. Prasad Onkar is an Associate Professor and former Head of the Department of the Department of Design at IIT Hyderabad, with research interests in design computing, sketch-based conceptual design, virtual reality, and human–computer interaction in design environments. His work focuses on enabling intuitive and immersive tools to support early-stage design thinking and conceptualisation. Having held academic and research roles at IIT Hyderabad, IIT Guwahati, Politecnico di Milano, and IISc Bengaluru, he has contributed to design research through work on sketch understanding, 3D sketching systems, and collaborative design environments. His work reflects a strong engagement with integrating computational methods and interactive technologies into design processes. His contributions include the development of virtual and haptic-based sketching systems, collaborative conceptual design tools, and research in immersive design environments, alongside publications in international journals and conferences and recognition through awards and fellowships. As part of the DeScIn Task Force, he supports the academy’s activities and coordination, bringing a technology-driven and design-computation perspective to its initiatives. ",
+  },
+];
+
+const secretariatMembers = [
+  {
+    name: "Nishath Salma",
+    role: "Administrative Support",
+    photo: "/members/Nishath.png",
+    bio: "Mrs Nishath Salma is the Administrative Assistant at IDeAS Lab, Department of Design and Manufacturing, IISc, where she supports academic administration, finance, SAP operations, travel, and project coordination. She brings over 20 years of professional experience across research, healthcare, and legal organisations, with expertise in academic administration, event management, documentation, logistics, and stakeholder coordination. She plays a key role in enabling the smooth execution of research, institutional, and administrative activities through effective operational support.",
+  },
+  {
+    name: "Apala Chakrabarti",
+    role: "Social Media Support",
+    photo: "/members/Apala.png",
+    bio: "A researcher, engineer, and designer exploring the intersection of artificial intelligence, sustainable product development, and Industry 4.0. Her work focuses on developing intelligent design support methods that enable engineers to make informed decisions during the early stages of the product development process. She is passionate about translating emerging technologies into practical, sustainable, and human-centred solutions through research, design, and innovation. Her broader research interests include AI-assisted design, sustainability assessment, design cognition, and responsible innovation.",
+  },
+  {
+    name: "Mary Ranjeetha",
+    role: "Editorial Support",
+    photo: "/members/Mary.png",
+    bio: "An editorial and research administration professional with over a decade of experience supporting scholarly publications, peer review management, website content management, institutional repositories and scientific communication. Skilled in editorial and publication workflows by supporting researchers through the complete manuscript submission and publication process that includes manuscript processing, plagiarism screening, peer review coordination, production of journal and conference proceedings with SpringerNature.",
   },
 ];
 
@@ -142,7 +166,7 @@ const eventsList = [
   {
     title: "ICoRD",
     subtitle: "International Conference on Research into Design - (owned from 2027)",
-    image: "/members/image.png",
+    image: "/icord_b.svg",
     description: "ICoRD is a series of conferences intended to be held every two years in India to bring together the international community...",
     link: "https://dm.iisc.ac.in/icord27/",
     paragraphs: [
@@ -154,7 +178,7 @@ const eventsList = [
   {
     title: "I-4AM",
     subtitle: "International Conference on Industry 4.0 and Advanced Manufacturing - (owned since 2026)",
-    image: "/members/i4AM.jpeg",
+    image: "/I4AM.svg",
     description: "Industry 4.0 is about using connected intelligence to usher in greater productivity, quality, flexibility, safety and resource utilisation...",
     link: "https://dm.iisc.ac.in/dm/2025/02/12/i-4am-2026-call-for-abstracts/",
     paragraphs: [
@@ -224,19 +248,19 @@ const specialInterestGroups = [
 const studentChapters = [
   {
     name: "IIT Guwahati",
-    logo: "/members/IIT_Guwahati_Logo.svg.png",
+    logo: "/IITG.svg",
     image: "/members/IITG.jpeg",
     link: "/coming-soon"
   },
   {
     name: "IISc Bengaluru",
-    logo: "/members/images.png",
+    logo: "/IIsc.svg",
     image: "/members/IITG.jpeg",
     link: "/coming-soon"
   },
   {
     name: "IIT Hyderabad",
-    logo: "/members/IITH logo.png",
+    logo: "/IITH.svg",
     image: "/members/IITH.jpeg",
     link: "/coming-soon"
   },
@@ -397,6 +421,7 @@ export default function Home() {
   const [isGoverningOpen, setIsGoverningOpen] = useState(true);
   const [isAdvisoryOpen, setIsAdvisoryOpen] = useState(false);
   const [isTaskForceOpen, setIsTaskForceOpen] = useState(false);
+  const [isSecretariatOpen, setIsSecretariatOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState<{name: string; role: string; bio: string; photo?: string} | null>(null);
   const [expandedPrinciple, setExpandedPrinciple] = useState<string | null>(null);
   const [selectedMembership, setSelectedMembership] = useState<(typeof membershipTypes)[number] | null>(null);
@@ -405,10 +430,13 @@ export default function Home() {
   const [selectedAward, setSelectedAward] = useState<(typeof awardsData)[number] | null>(null);
   const governingSliderRef = useRef<HTMLDivElement | null>(null);
   const taskForceSliderRef = useRef<HTMLDivElement | null>(null);
+  const secretariatSliderRef = useRef<HTMLDivElement | null>(null);
   const [canScrollGoverningLeft, setCanScrollGoverningLeft] = useState(false);
   const [canScrollGoverningRight, setCanScrollGoverningRight] = useState(true);
   const [canScrollTaskForceLeft, setCanScrollTaskForceLeft] = useState(false);
   const [canScrollTaskForceRight, setCanScrollTaskForceRight] = useState(true);
+  const [canScrollSecretariatLeft, setCanScrollSecretariatLeft] = useState(false);
+  const [canScrollSecretariatRight, setCanScrollSecretariatRight] = useState(true);
 
   useEffect(() => {
     const checkScroll = (slider: HTMLDivElement | null, setCanLeft: (v: boolean) => void, setCanRight: (v: boolean) => void) => {
@@ -421,6 +449,7 @@ export default function Home() {
 
     const governingSlider = governingSliderRef.current;
     const taskForceSlider = taskForceSliderRef.current;
+    const secretariatSlider = secretariatSliderRef.current;
 
     const handleGoverningScroll = () => {
       checkScroll(governingSlider, setCanScrollGoverningLeft, setCanScrollGoverningRight);
@@ -430,18 +459,25 @@ export default function Home() {
       checkScroll(taskForceSlider, setCanScrollTaskForceLeft, setCanScrollTaskForceRight);
     };
 
+    const handleSecretariatScroll = () => {
+      checkScroll(secretariatSlider, setCanScrollSecretariatLeft, setCanScrollSecretariatRight);
+    };
+
     governingSlider?.addEventListener('scroll', handleGoverningScroll);
     taskForceSlider?.addEventListener('scroll', handleTaskForceScroll);
+    secretariatSlider?.addEventListener('scroll', handleSecretariatScroll);
 
     // Initial check
     handleGoverningScroll();
     handleTaskForceScroll();
+    handleSecretariatScroll();
 
     return () => {
       governingSlider?.removeEventListener('scroll', handleGoverningScroll);
       taskForceSlider?.removeEventListener('scroll', handleTaskForceScroll);
+      secretariatSlider?.removeEventListener('scroll', handleSecretariatScroll);
     };
-  }, [governingCouncil, taskForceMembers]);
+  }, [governingCouncil, taskForceMembers, secretariatMembers, isGoverningOpen, isTaskForceOpen, isSecretariatOpen]);
 
   const nextSlide = () => setActiveSlide((c) => (c + 1) % heroSlides.length);
   const prevSlide = () => setActiveSlide((c) => (c === 0 ? heroSlides.length - 1 : c - 1));
@@ -475,6 +511,14 @@ export default function Home() {
     slider.scrollBy({ left: direction === "right" ? step : -step, behavior: "smooth" });
   };
 
+  const slideSecretariat = (direction: "left" | "right") => {
+    const slider = secretariatSliderRef.current;
+    if (!slider) return;
+    const firstCard = slider.querySelector<HTMLElement>(`.${styles.memberCard}`);
+    const step = (firstCard?.offsetWidth ?? 0) + 16;
+    slider.scrollBy({ left: direction === "right" ? step : -step, behavior: "smooth" });
+  };
+
   return (
     <div className={styles.page}>
       <header className={`${styles.siteHeader} ${headerHidden ? styles.headerHidden : ''}`}>
@@ -487,7 +531,14 @@ export default function Home() {
             {navItems.map((item) => (
               <a href={item.href} key={item.label} className={styles.navLink}>{item.label}</a>
             ))}
-            <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className={styles.loginButton}>Register</a>
+            <a 
+              href={REGISTER_URL} 
+              target={REGISTER_URL.startsWith("http") ? "_blank" : undefined} 
+              rel={REGISTER_URL.startsWith("http") ? "noopener noreferrer" : undefined} 
+              className={styles.loginButton}
+            >
+              Register
+            </a>
           </nav>
         </div>
       </header>
@@ -664,6 +715,35 @@ export default function Home() {
                   </div>
                 )}
               </div>
+
+              {/* Secretariat */}
+              <div className={styles.orgRow}>
+                <div className={styles.orgRowHeader}>
+                  <div className={styles.orgTitleGroup}>
+                    <h3 className={styles.orgTitle}>Secretariat</h3>
+                  </div>
+                  <button className={styles.rowAction} aria-label={`${isSecretariatOpen ? "Collapse" : "Expand"} secretariat`} onClick={() => setIsSecretariatOpen((v) => !v)}>
+                    {isSecretariatOpen ? "-" : "+"}
+                  </button>
+                </div>
+                {isSecretariatOpen && (
+                  <div className={styles.councilSliderWrap}>
+                    <button className={`${styles.sliderArrow} ${!canScrollSecretariatLeft ? styles.sliderArrowDisabled : ''}`} aria-label="Previous" onClick={() => slideSecretariat("left")} disabled={!canScrollSecretariatLeft}>&lt;</button>
+                    <div className={styles.memberStrip} ref={secretariatSliderRef}>
+                      {secretariatMembers.map((member, index) => (
+                        <article className={styles.memberCard} key={`${member.name}-${index}`} role="button" tabIndex={0} onClick={() => setSelectedMember(member)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setSelectedMember(member); }}>
+                          <img src={member.photo} alt={member.name} className={`${styles.memberPhoto} ${styles.secretariatPhoto}`} />
+                          <div className={styles.memberInfo}>
+                            <h4 className={styles.memberName}>{member.name}</h4>
+                            <p className={styles.memberRole}>{member.role}</p>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                    <button className={`${styles.sliderArrow} ${!canScrollSecretariatRight ? styles.sliderArrowDisabled : ''}`} aria-label="Next" onClick={() => slideSecretariat("right")} disabled={!canScrollSecretariatRight}>&gt;</button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -726,11 +806,15 @@ export default function Home() {
             </div>
             <div className={styles.chapterGrid}>
               {studentChapters.map((chapter, index) => (
-                <article className={styles.chapterCard} key={`${chapter.name}-${index}`} role="button" tabIndex={0} onClick={() => setSelectedChapter(chapter)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setSelectedChapter(chapter); }}>
-                  <div className={styles.chapterLogoWrap}>
-                    <img src={chapter.logo} alt={chapter.name} />
-                  </div>
-                  <h3 className={styles.chapterName}>{chapter.name}</h3>
+                <article 
+                  className={styles.chapterCard} 
+                  key={`${chapter.name}-${index}`} 
+                  role="button" 
+                  tabIndex={0} 
+                  onClick={() => setSelectedChapter(chapter)} 
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setSelectedChapter(chapter); }}
+                >
+                  <img src={chapter.logo} alt={chapter.name} className={styles.chapterLogo} />
                 </article>
               ))}
             </div>
@@ -833,7 +917,7 @@ export default function Home() {
           <div className={styles.memberModalCard} onClick={(e) => e.stopPropagation()}>
             <button className={styles.memberModalClose} aria-label="Close" onClick={() => setSelectedEvent(null)}>&times;</button>
             <div className={styles.memberModalLeft}>
-              <img src={selectedEvent.image} alt={selectedEvent.title} className={styles.memberModalImage} />
+              <img src={selectedEvent.image} alt={selectedEvent.title} className={styles.eventModalImage} />
               <h3>{selectedEvent.title}</h3>
               <p>{selectedEvent.subtitle}</p>
             </div>
@@ -861,7 +945,14 @@ export default function Home() {
                 <p style={{ fontWeight: 700, fontSize: "1.2rem", marginBottom: "0.5rem" }}>Fees</p>
                 <p style={{ fontSize: "1rem" }}>{selectedMembership.fees}</p>
               </div>
-              <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer" className={styles.registerButton}>Register</a>
+              <a 
+                href={REGISTER_URL} 
+                target={REGISTER_URL.startsWith("http") ? "_blank" : undefined} 
+                rel={REGISTER_URL.startsWith("http") ? "noopener noreferrer" : undefined} 
+                className={styles.registerButton}
+              >
+                Register
+              </a>
             </div>
             <div className={styles.memberModalRight}>
               <p style={{ marginBottom: "1.5rem" }}>{selectedMembership.details}</p>
