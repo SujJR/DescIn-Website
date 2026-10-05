@@ -857,7 +857,7 @@ export default function Home() {
             <div className={styles.awardsGrid}>
               {awardsData.map((award) => (
                 <article className={styles.awardCard} key={award.title} role="button" tabIndex={0} onClick={() => setSelectedAward(award)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setSelectedAward(award); }}>
-                  <img src="https://api.builder.io/api/v1/image/assets/TEMP/ecaefda523087a16ccebf206a239255507045993?width=778" alt={award.title} className={styles.eventImage} />
+                  <div className={styles.awardCardImage} aria-hidden="true" />
                   <div className={styles.awardCardBody}>
                     <h4>{award.title}</h4>
                     <p>{award.content.slice(0, 120)}...</p>

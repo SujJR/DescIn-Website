@@ -909,6 +909,13 @@
   transform: translateY(-4px);
 }
 
+.awardCardImage {
+  width: 100%;
+  height: 200px;
+  flex: 0 0 200px;
+  background: #fff;
+}
+
 .awardCardBody {
   padding: 0.9rem 1rem 1.2rem;
   flex: 1;
