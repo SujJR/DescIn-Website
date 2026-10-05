@@ -90,20 +90,28 @@ const secretariatMembers = [
 
 const heroSlides = [
   {
-    image: "/slides/hero-slide-1.png",
-    alt: "DeScIn hero intro",
-    imageClassName: "slideImageKnowMore",
-    ctaLabel: "Know more",
-    ctaHref: "#about",
-    ctaClassName: "slideCtaKnowMore",
+    image: "/slides/Cx_DRM23_02.jpg",
+    alt: "DRM 2023 event photograph",
   },
   {
-    image: "/slides/hero-slide-2.png",
-    alt: "Indian Winter School on Design Research",
-    imageClassName: "slideImageRegister",
-    ctaLabel: "Register Here",
-    ctaHref: REGISTER_URL,
-    ctaClassName: "slideCtaRegister",
+    image: "/slides/Cx_DRM24_03.jpg",
+    alt: "DRM 2024 event photograph",
+  },
+  {
+    image: "/slides/Cx_DRM25_03.jpg",
+    alt: "DRM 2025 event photograph",
+  },
+  {
+    image: "/slides/Cx_ICoRD17_02.jpg",
+    alt: "ICoRD 2017 event photograph",
+  },
+  {
+    image: "/slides/Cx_ICoRD25.jpg",
+    alt: "ICoRD 2025 event photograph",
+  },
+  {
+    image: "/slides/Cx_ICoRD25_04.jpg",
+    alt: "Another photograph from ICoRD 2025",
   },
 ];
 
@@ -420,6 +428,15 @@ export default function Home() {
   }, []);
 
   const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => window.clearTimeout(timer);
+  }, [activeSlide]);
+
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [isGoverningOpen, setIsGoverningOpen] = useState(true);
   const [isAdvisoryOpen, setIsAdvisoryOpen] = useState(false);
@@ -550,19 +567,11 @@ export default function Home() {
         {/* Hero */}
         <section className={styles.heroSection} id="hero">
           <div className={styles.container}>
-            <div className={styles.heroCard} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+            <div className={styles.heroCard} role="region" aria-label="DeScIn photo gallery" aria-roledescription="carousel" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
               <div className={styles.heroSlidesTrack} style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
-                {heroSlides.map((slide) => (
-                  <div className={styles.heroSlide} key={slide.image}>
-                    <img src={slide.image} alt={slide.alt} className={`${styles.heroSlideImage} ${styles[slide.imageClassName as keyof typeof styles]}`} />
-                    <a
-                      href={slide.ctaHref}
-                      target={slide.ctaHref.startsWith("http") ? "_blank" : undefined}
-                      rel={slide.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className={`${styles.slideCta} ${styles[slide.ctaClassName as keyof typeof styles]}`}
-                    >
-                      {slide.ctaLabel}
-                    </a>
+                {heroSlides.map((slide, index) => (
+                  <div className={styles.heroSlide} key={slide.image} aria-hidden={activeSlide !== index}>
+                    <img src={slide.image} alt={slide.alt} className={styles.heroSlideImage} />
                   </div>
                 ))}
               </div>
@@ -574,6 +583,7 @@ export default function Home() {
                       key={slide.image}
                       className={`${styles.heroDot} ${activeSlide === index ? styles.heroDotActive : ""}`}
                       aria-label={`Go to slide ${index + 1}`}
+                      aria-current={activeSlide === index ? "true" : undefined}
                       onClick={() => setActiveSlide(index)}
                     />
                   ))}
